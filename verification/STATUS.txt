@@ -1,0 +1,18 @@
+Initial standalone export verification: PASSED.
+
+Lean 4.33.1; Mathlib 0df444a360eaa60ab8c11dca51a86af692955474.
+Ran lake env python3 scripts/verify.py in this standalone package.
+All 81 shipped modules passed; fresh combined import exited 0.
+The 80 dependency modules are unchanged from the earlier successful 86-module
+paper-workspace check and were reused after source/dependency/compiler
+fingerprint validation. ACVFQE and the combined import were checked afresh.
+The local Lake environment used the installed matching Mathlib and package
+artifacts. The committed manifest pins public Git dependencies.
+A full clean lake build was not run as part of this export verification.
+
+AXIOMS.txt records exact headline types and audits. The RV headline has no
+additional mathematical hypotheses, and its axiom list contains only propext,
+Classical.choice, and Quot.sound. The inherited, unused C-minimality placeholder
+in Enc is documented in README and is not a dependency of the QE theorems.
+
+No oleans, local package symlinks, credentials, or scratch directories are shipped.
