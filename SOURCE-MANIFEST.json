@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/daviddhilbert/special-transformations",
   "baseline": "fa3867c686314cc1ad49bbaf8b0562c066d460b9",
-  "note": "Includes locally verified work beyond baseline; proof files copied without edits.",
+  "note": "Includes locally verified work beyond baseline. Hashes record the initial extraction, when proof files were copied without edits; subsequent documentation corrections change comments only.",
   "modules": {
     "ResidueTransportCore": {
       "source": "QE/LocalQE/ResidueTransportCore.lean",

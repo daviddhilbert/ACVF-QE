@@ -9,6 +9,10 @@
   `Classical.choice`, and `Quot.sound`. Explicit theorem hypotheses must also
   be inspected; a clean axiom list alone does not discharge them.
 - The RV language includes inversion as a function, totalized at zero.
+  The paper already stipulates the RV group structure in Definition 2.2.
+  The inverse symbol was omitted from the original Lean transcription;
+  restoring it corrected the transcription, not the paper. Do not describe
+  inversion as an extra assumption or a deviation from the paper.
   `pK` denotes nonzero residue elements; `pInK` includes residue zero.
   Mathlib's multiplicative valuation order reverses the paper's value-group
   order. Preserve these conventions in every bridge.

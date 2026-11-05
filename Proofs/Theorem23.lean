@@ -62,7 +62,8 @@ end LocalAssembly
 namespace SpecialTransformations.Milestone0
 
 /-- Theorem 2.3, with no additional mathematical hypotheses.
-The RV inverse is a named function, as in the author's group-language convention.
+The RV inverse is a named function, matching the paper's group language.
+Its function symbol was omitted from the original Lean transcription, not from the paper.
 All paper-specific substructure preparation and RV extension steps are proved.
 The ACF and ordinary valued-field QE steps are supplied by the checked Johnson
 proofs, and residue-field algebraic closedness is also proved. -/

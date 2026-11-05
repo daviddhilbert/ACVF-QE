@@ -15,7 +15,13 @@ Yimu Yin, *Special transformations in algebraically closed valued fields*
   mathematical hypotheses. Inputs and outputs are well-sorted, with arbitrary
   parameters and a uniform quantifier-free equivalent over all models.
 
-The RV language names inversion, including inverse of zero equal to zero.
+The paper's Definition 2.2 already stipulates the RV group structure, with
+inversion understood in its group language. The original **Lean transcription**
+omitted the RV inverse function symbol. Restoring that symbol corrected the
+transcription to match the paper; it introduced no additional mathematical
+assumption and was not a correction to the paper. Generated RV substructures
+therefore contain inverses, as intended in the paper. In the Lean encoding,
+inversion is totalized at the absorbing element by setting inverse of zero to zero.
 Mathlib's valuation order is opposite to the paper's value-group order;
 the bridges account for that reversal explicitly.
 
@@ -53,8 +59,10 @@ the final theorem has no restriction to countable models or parameter sets.
 
 Sources were extracted from `daviddhilbert/special-transformations` with the
 author's authorization. `SOURCE-MANIFEST.json` records original paths and exact
-source hashes; unrelated experimental snapshots are omitted. The paper-specific
-namespaces are retained to identify the exact statement proved.
+source hashes for the initial extraction; later documentation corrections may
+change comments without changing the Lean declarations. Unrelated experimental
+snapshots are omitted. The paper-specific namespaces are retained to identify
+the exact statement proved.
 
 `CountableSaturatedExtension.lean` adapts Elliot Glazer's `definable-saturated`,
 commit `e683bba9e758323b43dd1d6206ed2f6fc9510f06`, found through Palomar entry

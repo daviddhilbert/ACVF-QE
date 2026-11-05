@@ -5,9 +5,10 @@ set_option backward.isDefEq.respectTransparency false
 /-! An elementary class for the canonical totalization of the tagged language.
 
 The auxiliary theory adds explicit first-order sentences fixing only the
-interpretations at incorrectly sorted arguments. It retains the author-corrected
-`Axioms.ACVF`, including named RV inversion, and conservatively reduces its
-well-sorted QE target. No elimination or extension principle is assumed here.
+interpretations at incorrectly sorted arguments. It retains `Axioms.ACVF`, with
+the Lean transcription corrected to include the paper's RV inversion, and
+conservatively reduces its well-sorted QE target. No elimination or extension
+principle is assumed here.
 -/
 
 open FirstOrder FirstOrder.Language
@@ -43,7 +44,8 @@ def orderAxiom : LRV.Sentence :=
 def totalization : LRV.Theory :=
   {φ | (∃ (k : ℕ) (f : Fn k), φ = functionAxiom f) ∨ φ = orderAxiom}
 
-/-- An auxiliary ordinary first-order theory, retaining every corrected ACVF axiom. -/
+/-- An auxiliary ordinary first-order theory, retaining every axiom of the
+transcribed ACVF theory. -/
 def CanonicalACVF : LRV.Theory := Axioms.ACVF ∪ totalization
 
 variable {M : Type} [LRV.Structure M]

@@ -259,8 +259,8 @@ theorem canonicalQE_of_rawQE (h : HasRawQEOnCanonical Axioms.ACVF) :
   intro M sM hM hc v xs hv hx
   exact (heq M hM hc v xs hv hx).trans (sortedQF_realize hM hc sα sn v xs hv hx ψ hq).symm
 
-/-- Full-language canonical QE yields the well-sorted target for the same
-author-corrected language, including named RV inversion. -/
+/-- Full-language canonical QE yields the well-sorted target for the paper's
+group language, with its Lean transcription corrected to name RV inversion. -/
 theorem hasQE_of_raw_canonical (h : HasRawQEOnCanonical Axioms.ACVF) : HasQE Axioms.ACVF :=
   hasQE_of_canonical (canonicalQE_of_rawQE h)
 

@@ -118,8 +118,11 @@ inductive Fn : ℕ → Type where
   | rvZero : Fn 0
   /-- `×` of the `RV` sort -/
   | rvMul : Fn 2
-  /-- Multiplicative inverse on `RV`, totalized by `0⁻¹ = 0`.  Naming this operation
-  makes the author's convention that generated substructures contain inverses explicit. -/
+  /-- Multiplicative inverse on `RV`, totalized by `0⁻¹ = 0`. The paper already
+  stipulates the RV group structure in Definition 2.2, with inversion understood
+  in its group language. This function symbol was omitted from the original
+  Lean transcription; restoring it matches the paper and ensures generated
+  RV substructures contain inverses. -/
   | rvInv : Fn 1
   /-- `+ : K² → K` of the `RV` sort -/
   | kAdd : Fn 2
