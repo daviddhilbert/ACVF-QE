@@ -2,9 +2,9 @@ import Enc
 import QF2Fragment
 import FragmentTransfer
 
-/-! Canonical totalization of the tagged Lean transcription of the paper's
-language, including named RV inversion. The original Lean transcription omitted
-that inverse symbol; the paper already stipulated the RV group structure.
+/-! Canonical totalization of the corrected RV language, including named
+inversion. Naming RV inversion is the author-approved correction to the paper's
+inverse-free specification before Convention 2.5; see LANGUAGE-ERRATA.md.
 This construction itself does not alter the theory or well-sorted QE target. -/
 
 open Classical FirstOrder FirstOrder.Language

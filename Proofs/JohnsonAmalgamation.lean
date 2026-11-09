@@ -551,10 +551,10 @@ theorem star : ∀ {A A₁ A₂ : Type u} [Field A] [Field A₁] [Field A₂]
   letI algBB₂ : Algebra B B₂ := f₂.toAlgebra
   haveI hloc₁ : IsLocalHom (algebraMap B B₁) := by
     rw [RingHom.algebraMap_toAlgebra]
-    exact ((IsLocalRing.local_hom_TFAE f₁).out 4 0 rfl rfl).mp hf₁.2
+    exact ((IsLocalRing.local_hom_TFAE f₁).out 5 1 rfl rfl).mp hf₁.2
   haveI hloc₂ : IsLocalHom (algebraMap B B₂) := by
     rw [RingHom.algebraMap_toAlgebra]
-    exact ((IsLocalRing.local_hom_TFAE f₂).out 4 0 rfl rfl).mp hf₂.2
+    exact ((IsLocalRing.local_hom_TFAE f₂).out 5 1 rfl rfl).mp hf₂.2
   have hinj₁ : Function.Injective (algebraMap B B₁) := by
     rw [RingHom.algebraMap_toAlgebra]; exact hf₁.1
   have hinj₂ : Function.Injective (algebraMap B B₂) := by

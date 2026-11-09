@@ -2,23 +2,28 @@
 
 - Preserve the exact exported QE statements. ACF, ordinary valued-field ACVF,
   and RV-language ACVF are separate entry points; document which is changed.
-- Use the pinned Lean 4.33.1 and Mathlib commit. Keep the Lake configuration
+- Use the pinned Lean 4.35.0 and Mathlib commit. Keep the Lake configuration
   portable; do not introduce local absolute dependency paths.
 - Run `lake env python3 scripts/verify.py` for proof changes. Require exit 0
   and fresh headline signature/axiom audits. Accepted axioms are `propext`,
   `Classical.choice`, and `Quot.sound`. Explicit theorem hypotheses must also
   be inspected; a clean axiom list alone does not discharge them.
 - The RV language includes inversion as a function, totalized at zero.
-  The paper already stipulates the RV group structure in Definition 2.2.
-  The inverse symbol was omitted from the original Lean transcription;
-  restoring it corrected the transcription, not the paper. Do not describe
-  inversion as an extra assumption or a deviation from the paper.
+  The author clarified on November 5, 2026 that the paper explicitly omits
+  inverse symbols before Convention 2.5 and that RV inversion must be named
+  for the intended QE statement. This corrects the paper's language
+  specification; it was not only a Lean transcription error. The RV QE
+  theorem uses this corrected language, while VF inversion remains unnamed.
+  See `LANGUAGE-ERRATA.md`; earlier attribution claims are superseded.
+  Later definable-set work needs only definability of inverse. The named
+  function adds no definable sets and does not require changing downstream
+  statements; distinguish this from the literal QE/term-language question.
   `pK` denotes nonzero residue elements; `pInK` includes residue zero.
   Mathlib's multiplicative valuation order reverses the paper's value-group
   order. Preserve these conventions in every bridge.
-- `Enc.lean` is an inherited language snapshot. Its separate C-minimality
-  placeholder is outside the QE dependency chain and outside this package's
-  claims. Never use it to prove a QE result.
+- `Enc.lean` is an inherited language snapshot and retains the definitions
+  used by C-minimality. The checked C-minimality theorem belongs to
+  Section 3 of the paper repository.
 - Search existing local and external formalizations before rebuilding a
   substantial prerequisite. Read actual statements and dependencies; port
   only with attribution and a fresh compiler/axiom check.

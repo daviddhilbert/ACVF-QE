@@ -11,9 +11,9 @@ This file is self-contained: its only import is `Mathlib`.  Check it with
 
     lean Milestone0.lean
 
-Part 6 records the QE target, proved with explicit authorized standard-reference
-hypotheses in `QE/LocalQE/Theorem23.lean`. The sole remaining `sorry` in this file
-is the separate C-minimality target; the QE proof does not use it.
+Part 6 records the QE target proved in `Theorem23.lean` and the definitions
+for C-minimality. The checked C-minimality theorem lives in Section 3 of
+the special-transformations repository.
 -/
 import Mathlib
 
@@ -72,9 +72,13 @@ noncomputable def rv (x : K) : RV v := by
 
 end Valued
 
-/-! ## Part 1. The sorts and the symbols of `L_RV` (Definition 2.1)
+/-! ## Part 1. The corrected sorts and symbols of `L_RV`
 
-Definition 2.1 of the paper gives a language with two sorts:
+The language below follows Definition 2.1 with the author-approved correction
+of naming RV inversion. The paragraph before Convention 2.5 explicitly omits
+inverse symbols in VF and RV; the author clarified that the RV omission must
+be corrected for the intended QE result. No VF inverse symbol is added.
+The corrected language has two sorts:
 
 * a `VF`-sort with the language of rings `L_R = {0, 1, +, -, ×}`;
 * an `RV`-sort with the group language `{1, ×, (·)⁻¹}`, two constants `0` and `∞`, a unary
@@ -118,11 +122,10 @@ inductive Fn : ℕ → Type where
   | rvZero : Fn 0
   /-- `×` of the `RV` sort -/
   | rvMul : Fn 2
-  /-- Multiplicative inverse on `RV`, totalized by `0⁻¹ = 0`. The paper already
-  stipulates the RV group structure in Definition 2.2, with inversion understood
-  in its group language. This function symbol was omitted from the original
-  Lean transcription; restoring it matches the paper and ensures generated
-  RV substructures contain inverses. -/
+  /-- Multiplicative inverse on `RV`, totalized by `0⁻¹ = 0`. Naming this symbol
+  is the author-approved correction to the inverse-free language specification
+  before Convention 2.5, required for the intended QE result. It ensures that
+  language substructures contain RV inverses. See LANGUAGE-ERRATA.md. -/
   | rvInv : Fn 1
   /-- `+ : K² → K` of the `RV` sort -/
   | kAdd : Fn 2
@@ -144,7 +147,7 @@ inductive Rel : ℕ → Type where
   /-- the paper's preorder `≤` on `RV` -/
   | rvLe : Rel 2
 
-/-- **The language `L_RV` of Definition 2.1**, in the tagged one-sorted encoding. -/
+/-- The corrected `L_RV`, with named RV inversion, in the tagged one-sorted encoding. -/
 def LRV : Language := ⟨Fn, Rel⟩
 
 namespace LRV
@@ -1954,13 +1957,6 @@ theorem isCMinimalVFWS_of_isCMinimalWS {M : Type*} [LRV.Structure M]
   rintro s ⟨α, sα, φ, v, hv, hws, hs⟩
   rw [hs]
   exact h α sα φ hws v hv
-
-/-- **Theorem 2.8** (Yin, op. cit.; quoted from arXiv:1006.1393, Theorem 4.2):
-`ACVF` is C-minimal, i.e. every model of `ACVF` is C-minimal in the sense of
-Definition 2.7, for the formulas of the paper's two-sorted language (`IsCMinimalWS`). -/
-theorem theorem_2_8_c_minimal :
-    ∀ (M : Type) [LRV.Structure M] [Nonempty M], M ⊨ ACVF → IsCMinimalWS M := by
-  sorry
 
 /-! ## Part 6.1 The audit: `ACVF`'s axioms are well-sorted
 

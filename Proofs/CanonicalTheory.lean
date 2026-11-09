@@ -6,7 +6,7 @@ set_option backward.isDefEq.respectTransparency false
 
 The auxiliary theory adds explicit first-order sentences fixing only the
 interpretations at incorrectly sorted arguments. It retains `Axioms.ACVF`, with
-the Lean transcription corrected to include the paper's RV inversion, and
+the author's language correction adding named RV inversion, and
 conservatively reduces its well-sorted QE target. No elimination or extension
 principle is assumed here.
 -/

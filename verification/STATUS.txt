@@ -1,3 +1,10 @@
+Lean 4.35.0 migration
+
+The release pins Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679.
+Run lake build and lake env python3 scripts/verify.py for fresh results.
+The combined audit covers ACF and both valuation cases separately in the
+ordinary valued and RV languages. The historical receipt below uses 4.33.1.
+
 Initial standalone export verification: PASSED.
 
 Lean 4.33.1; Mathlib 0df444a360eaa60ab8c11dca51a86af692955474.

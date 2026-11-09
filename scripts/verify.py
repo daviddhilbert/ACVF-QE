@@ -56,8 +56,8 @@ for name in (targets if targets != [""] else sorted(sources)):
     visit(name)
 
 version = subprocess.check_output(["lean", "--version"], text=True).strip()
-if "4.33.1" not in version:
-    raise RuntimeError("Expected the repository's pinned Lean 4.33.1: " + version)
+if "4.35.0" not in version:
+    raise RuntimeError("Expected the repository's pinned Lean 4.35.0: " + version)
 env = os.environ.copy()
 env["LEAN_PATH"] = str(LIB) + os.pathsep + env.get("LEAN_PATH", "")
 manifest_path = BUILD / "manifest.json"
@@ -82,7 +82,6 @@ for name in ordered:
     bad_axioms = [a.strip() for block in re.findall(r"depends on axioms:\s*\[([^]]*)\]", output)
                   for a in block.split(",") if a.strip() not in
                   {"", "propext", "Classical.choice", "choice", "Quot.sound"}]
-    # Enc retains only the separate C-minimality placeholder. QE may not depend on it.
     failed = result != 0 or bool(re.search(r"\berror\b", output)) or bool(bad_axioms)
     report.append(f"{name}\t{result}\t{'FAIL' if failed else 'PASS'}\t{'cached' if cached else 'checked'}")
     (BUILD / "results.tsv").write_text("\n".join(report) + "\n", encoding="utf-8")
@@ -96,37 +95,41 @@ for name in ordered:
 
 # Import everything together to detect namespace and dependency collisions.
 combined = SRC / "CombinedLocalQE.lean"
-audit = ""
-if "Theorem23" in ordered:
-    audit = "\n".join([
-        "#check @JohnsonACF.hasQEb",
-        "#print axioms JohnsonACF.hasQEb",
-        "#check @ProvedResidueClosure.provedResidueClosure",
-        "#print axioms ProvedResidueClosure.provedResidueClosure",
-        "#check @ProvedACFExtension.markerACFSaturatedEmbeddingExtension",
-        "#print axioms ProvedACFExtension.markerACFSaturatedEmbeddingExtension",
-        "#check @JohnsonValuedExtension.markerNotesProposition45",
-        "#print axioms JohnsonValuedExtension.markerNotesProposition45",
-        "#check @CountableSaturatedExtension.exists_saturated_elementary_extension",
-        "#print axioms CountableSaturatedExtension.exists_saturated_elementary_extension",
-        "#check @CountableQECriterion.fullQE_of_saturatedExtension",
-        "#print axioms CountableQECriterion.fullQE_of_saturatedExtension",
-        "#check @SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination",
-        "#print axioms SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination",
-        "",
-    ])
+headlines = {
+    "Theorem23": (
+        "JohnsonACF.hasQEb",
+        "hasQE_ACVF_val",
+        "hasQEb_ACVF_val",
+        "ProvedResidueClosure.provedResidueClosure",
+        "ProvedACFExtension.markerACFSaturatedEmbeddingExtension",
+        "JohnsonValuedExtension.markerNotesProposition45",
+        "CountableSaturatedExtension.exists_saturated_elementary_extension",
+        "CountableQECriterion.fullQE_of_saturatedExtension",
+        "SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination",
+    ),
+    "TrivialValuedQE": ("ValPM.hasQE_ACVF_trivial_val", "ValPM.hasQEb_ACVF_trivial_val"),
+    "TrivialRVQE": ("SpecialTransformations.TrivialRV.canonical_trivial_rv_qe",),
+    "TrivialRVTheory": ("SpecialTransformations.TrivialRV.hasQE",),
+}
+expected_audits = {name for module, names in headlines.items() if module in ordered for name in names}
+audit = "set_option pp.explicit true\nset_option pp.fullNames true\n" + "".join(
+    f"#check @{name}\n#print axioms {name}\n" for name in sorted(expected_audits))
 combined.write_text("".join("import " + name + "\n" for name in ordered) + audit,
                     encoding="utf-8")
 with (LOG / "CombinedLocalQE.log").open("w", encoding="utf-8") as stream:
     result = subprocess.run(["lean", "-R", str(SRC), str(combined)], env=env,
                             stdout=stream, stderr=subprocess.STDOUT).returncode
 output = (LOG / "CombinedLocalQE.log").read_text(encoding="utf-8")
-bad_axioms = [a.strip() for block in re.findall(r"depends on axioms:\s*\[([^]]*)\]", output)
-              for a in block.split(",") if a.strip() not in
-              {"", "propext", "Classical.choice", "choice", "Quot.sound"}]
-failed = result != 0 or bool(re.search(r"\berror\b", output)) or bool(bad_axioms)
-if audit and "SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination' depends" not in output:
-    failed = True
+audits = re.findall(r"'([^'\n]+)' depends on axioms:\s*\[([^]]*)\]", output)
+audits += [(name, "") for name in re.findall(r"'([^'\n]+)' does not depend on any axioms", output)]
+allowed = {"propext", "Classical.choice", "Quot.sound"}
+bad_axioms = {a.strip() for _, block in audits for a in block.split(",") if a.strip()} - allowed
+coverage_ok = len(audits) == len(expected_audits) and {name for name, _ in audits} == expected_audits
+failed = result != 0 or bool(re.search(r"\berror\b", output)) or bool(bad_axioms) or not coverage_ok
+if not coverage_ok:
+    print("Incomplete combined QE headline audit", file=sys.stderr)
+if bad_axioms:
+    print(f"Unexpected combined QE axioms: {sorted(bad_axioms)}", file=sys.stderr)
 status = result if result != 0 else int(failed)
 (BUILD / "status.txt").write_text(str(status) + "\n", encoding="utf-8")
 if failed:

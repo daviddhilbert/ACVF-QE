@@ -5,7 +5,7 @@ import CanonicalStructure
 set_option backward.isDefEq.respectTransparency false
 
 /-! Extract the actual nonzero RV group and its map from a language substructure.
-The inverse-closure step uses the named RV inverse in the author's language.
+The inverse-closure step uses the named RV inverse in the corrected language.
 -/
 
 open FirstOrder FirstOrder.Language

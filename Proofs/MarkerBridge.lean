@@ -70,8 +70,8 @@ def MarkerProposition4328 : Prop :=
     ∀ T : L.Theory, SaturatedEmbeddingExtension T → FullQE T
 
 /-- The theory-specific extension interface, proved downstream in `Theorem23`.
-Its models satisfy the ACVF axioms, with the Lean transcription corrected to
-include the paper's RV inversion, and the explicit first-order canonical
+Its models satisfy the ACVF axioms with the author-approved language correction
+adding named RV inversion, and the explicit first-order canonical
 totalizations. -/
 abbrev CanonicalExtension : Prop :=
   SaturatedEmbeddingExtension CanonicalTheory.CanonicalACVF
@@ -92,7 +92,7 @@ theorem rawCanonicalQE_of_fullQE
   intro M sM hM hc v xs hv hx
   exact heq M (CanonicalTheory.model_CanonicalACVF_iff.mpr ⟨hM, hc⟩) v xs
 
-/-- The bridge to the well-sorted QE target in the faithfully transcribed paper language.
+/-- The bridge to the well-sorted QE target in the corrected RV language with named inversion.
 Only the generic book criterion is quoted here. `hExt` is supplied by the
 paper-specific extension proof in `Theorem23`; this module keeps it explicit. -/
 theorem qe_of_marker_and_extension

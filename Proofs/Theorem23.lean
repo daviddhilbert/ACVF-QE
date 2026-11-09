@@ -6,7 +6,7 @@ import ProvedACFExtension
 import CountableQECriterion
 import CanonicalCountable
 
-/-! Quantifier elimination in the author's RV language, with named inversion.
+/-! Quantifier elimination in the corrected RV language, with named inversion.
 
 The paper-specific preparation and extension arguments are proved here.
 Residue-field algebraic closedness and both ACF and ordinary ACVF embedding
@@ -62,8 +62,9 @@ end LocalAssembly
 namespace SpecialTransformations.Milestone0
 
 /-- Theorem 2.3, with no additional mathematical hypotheses.
-The RV inverse is a named function, matching the paper's group language.
-Its function symbol was omitted from the original Lean transcription, not from the paper.
+The named RV inverse is the author-approved correction to the inverse-free
+language specification before Convention 2.5. This theorem concerns the
+corrected language; see LANGUAGE-ERRATA.md.
 All paper-specific substructure preparation and RV extension steps are proved.
 The ACF and ordinary valued-field QE steps are supplied by the checked Johnson
 proofs, and residue-field algebraic closedness is also proved. -/

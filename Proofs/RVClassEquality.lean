@@ -35,5 +35,20 @@ theorem rv_eq_iff {x y : K} (hx : x ≠ 0) (hy : y ≠ 0) :
       exact h
     · simp
 
+/-- The nonzero leading-term map has kernel `1 + 𝔪`. -/
+theorem rvUnit_kernel (v : Valuation K Γ₀) :
+    (QuotientGroup.mk' (principalUnits v) : Kˣ →* RVUnit v).ker = principalUnits v :=
+  QuotientGroup.ker_mk' (principalUnits v)
+
+/-- A nonzero field element has leading term `rv 1` exactly when its
+difference from one lies in the maximal ideal. -/
+theorem rv_eq_rv_one_iff {x : K} (hx : x ≠ 0) :
+    rv v x = rv v 1 ↔ v (x - 1) < 1 := by
+  rw [eq_comm, rv_eq_iff one_ne_zero hx, ← neg_sub x 1, Valuation.map_neg, map_one]
 
 end RVCalc
+
+#check @RVCalc.rvUnit_kernel
+#print axioms RVCalc.rvUnit_kernel
+#check @RVCalc.rv_eq_rv_one_iff
+#print axioms RVCalc.rv_eq_rv_one_iff

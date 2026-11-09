@@ -7,8 +7,8 @@ set_option backward.isDefEq.respectTransparency false
 /-!
 Assembly of the checked local algebra and model-theoretic bridges.
 
-This file isolates `Preparation` as an intermediate construction. In the author's
-language with named RV inversion, `Theorem23.lean` supplies the proved ACF
+This file isolates `Preparation` as an intermediate construction. In the corrected
+RV language with named inversion, `Theorem23.lean` supplies the proved ACF
 extension and residue-field algebraic-closedness inputs to construct it.
 The whole valued-field extension is supplied by the repository's Johnson
 proof, through `JohnsonValuedExtension`, with no ordinary ACVF QE hypothesis.

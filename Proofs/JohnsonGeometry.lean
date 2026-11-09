@@ -1,4 +1,5 @@
 import JohnsonLanguagePrime
+import Mathlib.Algebra.Polynomial.Lifts
 
 /-!
 Johnson's Chapter 2 geometry and one-variable existential closedness.
@@ -1832,16 +1833,8 @@ theorem one_lt_multiset_prod {α : Type*} [LinearOrderedCommMonoidWithZero α] (
 /-- A polynomial is monic as soon as its degree is at most `n` and its `n`-th coefficient
 is `1`. -/
 theorem monic_of_natDegree_le_of_coeff_eq_one {R : Type*} [Semiring R] [Nontrivial R] {p : R[X]}
-    {n : ℕ}
-    (h : p.natDegree ≤ n) (h1 : p.coeff n = 1) : p.Monic := by
-  have hn : p.natDegree = n := by
-    rcases lt_or_eq_of_le h with hlt | heq
-    · exfalso
-      rw [coeff_eq_zero_of_natDegree_lt hlt] at h1
-      exact zero_ne_one h1
-    · exact heq
-  rw [Monic, leadingCoeff, hn]
-  exact h1
+    {n : ℕ} (h : p.natDegree ≤ n) (h1 : p.coeff n = 1) : p.Monic :=
+  Polynomial.monic_of_natDegree_le_of_coeff_eq_one n h h1
 
 /-! ## Lifting a monic polynomial along a surjective ring homomorphism -/
 
@@ -1849,33 +1842,9 @@ theorem monic_of_natDegree_le_of_coeff_eq_one {R : Type*} [Semiring R] [Nontrivi
 theorem exists_monic_map_eq {R S : Type*} [CommRing R] [Nontrivial R] [CommRing S] (φ : R →+* S)
     (hφ : Function.Surjective φ) {q : S[X]} (hq : q.Monic) :
     ∃ f : R[X], f.Monic ∧ f.map φ = q := by
-  classical
-  choose s hs using hφ
-  set s' : S → R := fun c => if c = 1 then 1 else s c with hs'
-  have hs'1 : s' 1 = 1 := by simp [hs']
-  have hs'spec : ∀ c, φ (s' c) = c := by
-    intro c
-    by_cases hc : c = 1
-    · rw [hc, hs'1, map_one]
-    · simp only [hs', if_neg hc]; exact hs c
-  refine ⟨X ^ q.natDegree + ∑ i ∈ Finset.range q.natDegree, C (s' (q.coeff i)) * X ^ i,
-    ?_, ?_⟩
-  · refine monic_of_natDegree_le_of_coeff_eq_one (n := q.natDegree) ?_ ?_
-    · refine le_trans (natDegree_add_le _ _) (max_le (le_of_eq (natDegree_X_pow _)) ?_)
-      refine natDegree_sum_le_of_forall_le (s := Finset.range q.natDegree)
-        (f := fun i => C (s' (q.coeff i)) * X ^ i) (n := q.natDegree) (fun i hi => ?_)
-      rw [Finset.mem_range] at hi
-      exact le_trans (natDegree_C_mul_X_pow_le _ _) (le_of_lt hi)
-    · rw [coeff_add, coeff_X_pow_self, finsetSum_coeff]
-      have hzero : ∀ i ∈ Finset.range q.natDegree,
-          (C (s' (q.coeff i)) * X ^ i).coeff q.natDegree = 0 := by
-        intro i hi
-        rw [Finset.mem_range] at hi
-        rw [coeff_C_mul, coeff_X_pow, if_neg (Ne.symm (ne_of_lt hi)), mul_zero]
-      rw [Finset.sum_eq_zero hzero, add_zero]
-  · rw [Polynomial.map_add, Polynomial.map_pow, Polynomial.map_X, Polynomial.map_sum]
-    simp only [Polynomial.map_mul, Polynomial.map_C, Polynomial.map_pow, Polynomial.map_X, hs'spec]
-    conv_rhs => rw [hq.as_sum]
+  obtain ⟨f, hfmap, _, hfmonic⟩ :=
+    Polynomial.lifts_and_natDegree_eq_and_monic (Polynomial.mem_lifts_of_surjective (f := φ) hφ q) hq
+  exact ⟨f, hfmonic, hfmap⟩
 
 /-! ## The root-product argument -/
 
