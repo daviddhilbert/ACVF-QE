@@ -1,5 +1,19 @@
 # ACVF quantifier elimination
 
+The Palomar submission selects ACF, ordinary nontrivial ACVF, and nontrivial
+ACVF in the corrected RV language. Trivial valuation results remain in the
+released development but are excluded from this submission. `Challenge`,
+`Solution`, and `comparator.json` identify the three compared entry points.
+No novelty of the classical QE theorems is claimed. The formalization supplies
+foundations for further formalized model theory and VF/RV geometry; no search
+establishing novelty of the formalization is claimed.
+
+The ordinary valued-field argument adapts Chapter 2 of William Andrew
+Johnson's [*Fun with Fields* (Berkeley dissertation, 2016)](https://math.berkeley.edu/~willij/drafts/will-thesis.pdf).
+The ACF development applies the generic criterion to field inputs. The RV
+theorem supplies the paper's corrected-language foundation and uses the
+ordinary valued-field development.
+
 Lean formalization of quantifier elimination for algebraically closed fields,
 ordinary algebraically closed valued fields, and the corrected RV language for
 Yimu Yin, *Special transformations in algebraically closed valued fields*

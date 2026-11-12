@@ -30,20 +30,24 @@ sources:
     type: book
     relationship: background
     note: "First-order model theory, compactness and saturated-model methods."
-  - title: "definable-saturated"
-    authors: ["Elliot Glazer"]
-    type: other
-    location: "https://github.com/elliotglazer/definable-saturated/tree/e683bba9e758323b43dd1d6206ed2f6fc9510f06"
+  - title: "Fun with Fields"
+    authors: ["William Andrew Johnson"]
+    type: thesis
+    location: "https://math.berkeley.edu/~willij/drafts/will-thesis.pdf"
     relationship: adapts
-    license: "Apache-2.0"
     note: >-
-      Adaptation of the nonprincipal-ultrapower saturation argument in
-      CountableSaturatedExtension.lean; original LICENSE, NOTICE and exact
-      provenance are retained under vendor/definable-saturated.
+      Berkeley dissertation, 2016, Chapter 2: a direct proof of quantifier
+      elimination and C-minimality in ACVF. The ordinary valued-field
+      proof follows the criterion, amalgamation and one-variable geometry;
+      C-minimality is not a claim of this submission.
 related_formalizations:
   - id: "https://github.com/elliotglazer/definable-saturated"
     relationship: adapts
-    note: "Countable saturation proof only; no continuum hypothesis is used."
+    note: >-
+      Countable saturation proof only; no continuum hypothesis is used.
+      Exact revision e683bba9e758323b43dd1d6206ed2f6fc9510f06,
+      CountableSaturatedExtension.lean, Apache-2.0. Original LICENSE,
+      NOTICE and provenance are retained under vendor/definable-saturated.
 status:
   scope: >-
     Three independently stated QE entry points, with no characteristic fixed.

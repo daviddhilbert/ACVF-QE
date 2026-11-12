@@ -803,6 +803,7 @@ def sortEval {M : Type*} [LRV.Structure M] : SortTag → M → Prop
 end Milestone0
 end SpecialTransformations
 
+open scoped FirstOrder
 set_option backward.isDefEq.respectTransparency false
 namespace FirstOrder
 inductive ValFunc : ℕ → Type
@@ -888,7 +889,6 @@ def axScale : Language.val.Sentence := axScaleF.alls
 end ValPM
 
 open FirstOrder.Ring
-open scoped FirstOrder
 namespace ACFValidation
 /-- Algebraically closed fields in every characteristic. -/
 noncomputable def acf : Theory Language.ring :=
