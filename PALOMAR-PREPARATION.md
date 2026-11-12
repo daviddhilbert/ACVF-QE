@@ -28,3 +28,9 @@ Further compiler-directed preparation exposes helpers used by public
 declarations. The ordinary nontriviality formula uses an explicit finite index
 in both statement and library to avoid elaboration-dependent auxiliary proofs.
 Fresh checks are pending for these changes.
+
+The valuation axioms now bind their finite variable indices explicitly in
+both the independent statements and the source library. Their ordinary
+mathematical meanings are unchanged; this removes dependence on the
+elaboration history of bounded-variable notation. The selected wrapper
+headlines are also printed explicitly alongside their axiom audits.

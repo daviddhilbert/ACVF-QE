@@ -102,35 +102,59 @@ abbrev predM {M : Type*} [Language.val.Structure M] (x y : M) : Prop :=
 closed with `BoundedFormula.alls`; this keeps the realization lemmas small. -/
 
 /-- The relation `v x ≤ v y` is reflexive. -/
-def axReflF : Language.val.BoundedFormula Empty 1 := leF (&0) (&0)
+def axReflF : Language.val.BoundedFormula Empty 1 :=
+  let x0 : Language.val.Term (Empty ⊕ Fin 1) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 0⟩)
+  leF (x0) (x0)
+
 def axRefl : Language.val.Sentence := axReflF.alls
 
 /-- The relation `v x ≤ v y` is transitive. -/
 def axTransF : Language.val.BoundedFormula Empty 3 :=
-  leF (&0) (&1) ⟹ leF (&1) (&2) ⟹ leF (&0) (&2)
+  let x0 : Language.val.Term (Empty ⊕ Fin 3) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 2⟩)
+  let x1 : Language.val.Term (Empty ⊕ Fin 3) := Term.var (Sum.inr ⟨1, Nat.lt.step (Nat.lt_succ_self 1)⟩)
+  let x2 : Language.val.Term (Empty ⊕ Fin 3) := Term.var (Sum.inr ⟨2, Nat.lt_succ_self 2⟩)
+  leF (x0) (x1) ⟹ leF (x1) (x2) ⟹ leF (x0) (x2)
+
 def axTrans : Language.val.Sentence := axTransF.alls
 
 /-- The relation `v x ≤ v y` is total. -/
-def axTotalF : Language.val.BoundedFormula Empty 2 := leF (&0) (&1) ⊔ leF (&1) (&0)
+def axTotalF : Language.val.BoundedFormula Empty 2 :=
+  let x0 : Language.val.Term (Empty ⊕ Fin 2) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 1⟩)
+  let x1 : Language.val.Term (Empty ⊕ Fin 2) := Term.var (Sum.inr ⟨1, Nat.lt_succ_self 1⟩)
+  leF (x0) (x1) ⊔ leF (x1) (x0)
+
 def axTotal : Language.val.Sentence := axTotalF.alls
 
 /-- `v 0` is minimal. -/
-def axZeroLeF : Language.val.BoundedFormula Empty 1 := leF 0 (&0)
+def axZeroLeF : Language.val.BoundedFormula Empty 1 :=
+  let x0 : Language.val.Term (Empty ⊕ Fin 1) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 0⟩)
+  leF 0 (x0)
+
 def axZeroLe : Language.val.Sentence := axZeroLeF.alls
 
 /-- `v x ≤ v 0` only for `x = 0`. -/
-def axZeroEqF : Language.val.BoundedFormula Empty 1 := leF (&0) 0 ⟹ (&0 =' 0)
+def axZeroEqF : Language.val.BoundedFormula Empty 1 :=
+  let x0 : Language.val.Term (Empty ⊕ Fin 1) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 0⟩)
+  leF (x0) 0 ⟹ (x0 =' 0)
+
 def axZeroEq : Language.val.Sentence := axZeroEqF.alls
 
 /-- The ultrametric inequality `v (x + y) ≤ max (v x) (v y)`, as a disjunction. -/
 def axUltraF : Language.val.BoundedFormula Empty 2 :=
-  leF (&0 + &1) &0 ⊔ leF (&0 + &1) &1
+  let x0 : Language.val.Term (Empty ⊕ Fin 2) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 1⟩)
+  let x1 : Language.val.Term (Empty ⊕ Fin 2) := Term.var (Sum.inr ⟨1, Nat.lt_succ_self 1⟩)
+  leF (x0 + x1) x0 ⊔ leF (x0 + x1) x1
+
 def axUltra : Language.val.Sentence := axUltraF.alls
 
 /-- Multiplication by a nonzero element preserves and reflects the order: `v (x z) ≤ v (y z) ↔
 v x ≤ v y`.  This is the multiplicative behaviour of `v`, expressed by the predicate alone. -/
 def axScaleF : Language.val.BoundedFormula Empty 3 :=
-  ∼(&2 =' 0) ⟹ (leF (&0) (&1) ⇔ leF (&0 * &2) (&1 * &2))
+  let x0 : Language.val.Term (Empty ⊕ Fin 3) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 2⟩)
+  let x1 : Language.val.Term (Empty ⊕ Fin 3) := Term.var (Sum.inr ⟨1, Nat.lt.step (Nat.lt_succ_self 1)⟩)
+  let x2 : Language.val.Term (Empty ⊕ Fin 3) := Term.var (Sum.inr ⟨2, Nat.lt_succ_self 2⟩)
+  ∼(x2 =' 0) ⟹ (leF (x0) (x1) ⇔ leF (x0 * x2) (x1 * x2))
+
 def axScale : Language.val.Sentence := axScaleF.alls
 
 /-- The theory of fields, transported to `L_val`. -/

@@ -32,7 +32,7 @@ sources:
     note: "First-order model theory, compactness and saturated-model methods."
   - title: "Fun with Fields"
     authors: ["William Andrew Johnson"]
-    type: thesis
+    type: other
     location: "https://math.berkeley.edu/~willij/drafts/will-thesis.pdf"
     relationship: adapts
     note: >-
