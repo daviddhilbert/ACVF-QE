@@ -16,9 +16,10 @@ namespace ValPM
 
 /-- In the multiplicative order, zero is least and all nonzero values agree. -/
 def axTrivial : Language.val.Sentence :=
-  (BoundedFormula.iff (leF (Term.var (.inr (0 : Fin 2))) (Term.var (.inr 1)))
-    ((Term.var (.inr (0 : Fin 2))).bdEqual (0 : Language.val.Term (Empty ⊕ Fin 2)) ⊔
-      ((Term.var (.inr (1 : Fin 2))).bdEqual 0).not)).alls
+  let x : Language.val.Term (Empty ⊕ Fin 2) := .var (.inr ⟨0, Nat.zero_lt_two⟩)
+  let y : Language.val.Term (Empty ⊕ Fin 2) := .var (.inr ⟨1, Nat.one_lt_two⟩)
+  let z : Language.val.Term (Empty ⊕ Fin 2) := .func ValFunc.zero (fun i => i.elim0)
+  (BoundedFormula.iff (leF x y) (x.bdEqual z ⊔ (y.bdEqual z).not)).alls
 
 noncomputable def ACVFTrivial_val : Language.val.Theory :=
   valRingHom.onTheory ACFValidation.acf ∪ {axTrivial}

@@ -62,6 +62,16 @@ jobs:
       - name: Check the QE modules and headline axioms
         run: lake env python3 scripts/verify.py
 
+      - name: Build and inspect the independent statements
+        shell: bash
+        run: |
+          lake build Challenge Solution
+          for source in Challenge Solution; do
+            probe=".scratch/local-qe-check/src/Print${source}.lean"
+            printf 'import %s\nimport Lean\nset_option pp.all true\n#print ValPM.axTrivial\n#print SpecialTransformations.Milestone0.LRV.hornerPoly\n' "$source" > "$probe"
+            lake env lean "$probe" > ".scratch/local-qe-check/logs/Statement${source}.log" 2>&1
+          done
+
       - name: Retain verification evidence
         if: ${{ always() }}
         uses: actions/upload-artifact@v6
