@@ -639,10 +639,10 @@ end Powers
   match k with
   | 0 => tv 0 Nat.zero_lt_one
   | (n + 1) =>
-    let x : Tm (n + 1 + 1) := tv (n + 1) (by omega)
+    let x : Tm (n + 1 + 1) := tv (n + 1) (Nat.lt_succ_self (n + 1))
     (List.finRange n).reverse.foldl
-      (fun acc i => add (mul acc x) (tv i.val (by omega)))
-      (add x (tv n (by omega)))
+      (fun acc i => add (mul acc x) (tv i.val (Nat.lt_trans i.isLt (Nat.lt.step (Nat.lt_succ_self n)))))
+      (add x (tv n (Nat.lt.step (Nat.lt_succ_self n))))
 /-- Sanity check on the Horner form: at `k = 1` it is the monic linear `x + a₀`. -/ theorem hornerPoly_one :
     hornerPoly (k := 1) tKAdd tRVMul = tKAdd (tv 1 Nat.one_lt_two) (tv 0 Nat.zero_lt_two) := rfl
 /-- Sanity check on the Horner form: at `k = 2` it is the monic quadratic `x² + a₁x + a₀` (the `x²` coefficient is `1`, not `0`). -/ theorem hornerPoly_two :

@@ -1165,10 +1165,10 @@ def hornerPoly {k : ℕ} (add mul : {n : ℕ} → Tm n → Tm n → Tm n) : Tm (
   match k with
   | 0 => tv 0 Nat.zero_lt_one
   | (n + 1) =>
-    let x : Tm (n + 1 + 1) := tv (n + 1) (by omega)
+    let x : Tm (n + 1 + 1) := tv (n + 1) (Nat.lt_succ_self (n + 1))
     (List.finRange n).reverse.foldl
-      (fun acc i => add (mul acc x) (tv i.val (by omega)))
-      (add x (tv n (by omega)))
+      (fun acc i => add (mul acc x) (tv i.val (Nat.lt_trans i.isLt (Nat.lt.step (Nat.lt_succ_self n)))))
+      (add x (tv n (Nat.lt.step (Nat.lt_succ_self n))))
 
 /-- Sanity check on the Horner form: at `k = 1` it is the monic linear `x + a₀`. -/
 theorem hornerPoly_one :
