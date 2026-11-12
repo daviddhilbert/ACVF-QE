@@ -4,7 +4,6 @@
   "theorem_names": [
     "PalomarQE.acf",
     "PalomarQE.nontrivial_acvf",
-    "PalomarQE.trivial_acvf",
     "PalomarQE.rv_acvf"
   ],
   "permitted_axioms": [

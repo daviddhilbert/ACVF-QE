@@ -10,13 +10,12 @@ names and values. The syntax support through the axioms is retained to preserve
 generated auxiliary declarations. Unused later developments are omitted.
 This independent statement imports only Mathlib.
 
-The selected claims are pure ACF, ordinary ACVF with nontrivial or trivial
-valuation separately, and nontrivial ACVF in the corrected two-sorted RV
+The selected claims are pure ACF, ordinary nontrivial ACVF,
+and nontrivial ACVF in the corrected two-sorted RV
 language. No characteristic is fixed. The RV claim concerns well-sorted
 formulas and assignments; RV inversion is named and VF inversion is unnamed.
 No saturation or extra mathematical reference hypothesis is imposed.
-The separate trivial-RV theorem is available in the library but is not one of
-the claims compared by this configuration. The union is not claimed to have QE.
+Only the nontrivial valuation case is claimed for the valued-field results.
 -/
 open FirstOrder FirstOrder.Language
 open FirstOrder FirstOrder.Language
@@ -894,18 +893,6 @@ noncomputable def acf : Theory Language.ring :=
   Theory.field ∪ Field.genericMonicPolyHasRoot '' {n : ℕ | 0 < n}
 
 end ACFValidation
-namespace ValPM
-/-- In the multiplicative order, zero is least and all nonzero values agree. -/
-def axTrivial : Language.val.Sentence :=
-  let x : Language.val.Term (Empty ⊕ Fin 2) := .var (.inr ⟨0, Nat.zero_lt_two⟩)
-  let y : Language.val.Term (Empty ⊕ Fin 2) := .var (.inr ⟨1, Nat.one_lt_two⟩)
-  let z : Language.val.Term (Empty ⊕ Fin 2) := .func ValFunc.zero (fun i => i.elim0)
-  (BoundedFormula.iff (leF x y) (x.bdEqual z ⊔ (y.bdEqual z).not)).alls
-
-noncomputable def ACVFTrivial_val : Language.val.Theory :=
-  valRingHom.onTheory ACFValidation.acf ∪ {axTrivial}
-
-end ValPM
 namespace QECriterion
 variable {L : Language}
 /-- Every bounded formula has a quantifier-free equivalent over all models of T. -/
@@ -921,7 +908,5 @@ end QECriterion
 theorem PalomarQE.acf : QECriterion.HasQEb (L := Language.ring) ACFValidation.acf := by sorry
 /-- Nontrivially valued algebraically closed fields have bounded QE. -/
 theorem PalomarQE.nontrivial_acvf : QECriterion.HasQEb (L := Language.val) ValPM.ACVF_val := by sorry
-/-- The separate theory of trivially valued algebraically closed fields has bounded QE. -/
-theorem PalomarQE.trivial_acvf : QECriterion.HasQEb (L := Language.val) ValPM.ACVFTrivial_val := by sorry
 /-- Nontrivial ACVF has well-sorted QE in the corrected RV language. -/
 theorem PalomarQE.rv_acvf : SpecialTransformations.Milestone0.HasQE SpecialTransformations.Milestone0.Axioms.ACVF := by sorry

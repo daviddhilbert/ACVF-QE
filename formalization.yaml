@@ -4,11 +4,10 @@ project:
   description: >-
     A Lean formalization of quantifier elimination for algebraically closed
     fields, nontrivially valued algebraically closed fields in the ordinary
-    valued-field language, the separate trivially valued theory, and the
+    valued-field language, and the
     corrected two-sorted RV language with named RV inversion. This Comparator
-    configuration checks those four entry points. The repository additionally
-    contains separate canonical trivial-RV results, which this configuration
-    does not compare. No uniform QE theorem for the union is claimed.
+    configuration checks those three entry points. Only nontrivial valuations
+    are included in the valued-field claims.
   authors: ["Yimu Yin"]
   license: "MIT"
   responsible_maintainers: ["Yimu Yin"]
@@ -47,13 +46,12 @@ related_formalizations:
     note: "Countable saturation proof only; no continuum hypothesis is used."
 status:
   scope: >-
-    Four independently stated QE entry points, with no characteristic fixed.
+    Three independently stated QE entry points, with no characteristic fixed.
     The RV entry point concerns well-sorted formulas and assignments in the
     corrected nontrivial theory. It names totalized RV inversion and leaves
-    VF inversion unnamed. The common theory of canonical trivial-RV structures
-    has a separate library result, outside this Comparator selection.
-    C-minimality and a uniform theorem for the union are not claimed here.
-    No extra mathematical hypotheses occur in the four compared theorems.
+    VF inversion unnamed. Only nontrivial valuations are included in the
+    valued-field claims. C-minimality is not claimed here.
+    No extra mathematical hypotheses occur in the three compared theorems.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
@@ -102,11 +100,6 @@ alignment:
       module: "Solution"
       status: proved
       note: "Nontrivial valuations, ring language with binary valuation comparison."
-    - source: "Trivially valued algebraically closed fields"
-      lean: "PalomarQE.trivial_acvf"
-      module: "Solution"
-      status: proved
-      note: "A separate theory, not the union with nontrivial ACVF."
     - source: "Yin, Theorem 2.3, corrected RV language"
       lean: "PalomarQE.rv_acvf"
       module: "Solution"
