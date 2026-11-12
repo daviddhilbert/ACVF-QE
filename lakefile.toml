@@ -97,3 +97,7 @@ roots = [
   "ValuedModelMap",
   "ValuedReduct",
 ]
+
+[[lean_lib]]
+name = "PalomarStatements"
+roots = ["Challenge", "Solution"]

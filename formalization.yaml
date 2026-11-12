@@ -1,0 +1,117 @@
+version: "v0.4"
+project:
+  name: "Quantifier elimination for algebraically closed valued fields"
+  description: >-
+    A Lean formalization of quantifier elimination for algebraically closed
+    fields, nontrivially valued algebraically closed fields in the ordinary
+    valued-field language, the separate trivially valued theory, and the
+    corrected two-sorted RV language with named RV inversion. This Comparator
+    configuration checks those four entry points. The repository additionally
+    contains separate canonical trivial-RV results, which this configuration
+    does not compare. No uniform QE theorem for the union is claimed.
+  authors: ["Yimu Yin"]
+  license: "MIT"
+  responsible_maintainers: ["Yimu Yin"]
+classification:
+  arxiv: ["math.LO"]
+  msc2020: ["03C10", "03B35"]
+sources:
+  - title: "Special transformations in algebraically closed valued fields"
+    authors: ["Yimu Yin"]
+    id: "arXiv:1006.2467v1"
+    type: paper
+    location: "https://arxiv.org/abs/1006.2467v1"
+    relationship: formalizes
+    note: >-
+      Theorem 2.3 in the author-corrected language with named RV inversion.
+      The ordinary ACF and valued-field QE arguments are supporting classical
+      results, using the Johnson-style criterion credited in source headers.
+  - title: "Model Theory: An Introduction"
+    authors: ["David Marker"]
+    type: book
+    relationship: background
+    note: "First-order model theory, compactness and saturated-model methods."
+  - title: "definable-saturated"
+    authors: ["Elliot Glazer"]
+    type: other
+    location: "https://github.com/elliotglazer/definable-saturated/tree/e683bba9e758323b43dd1d6206ed2f6fc9510f06"
+    relationship: adapts
+    license: "Apache-2.0"
+    note: >-
+      Adaptation of the nonprincipal-ultrapower saturation argument in
+      CountableSaturatedExtension.lean; original LICENSE, NOTICE and exact
+      provenance are retained under vendor/definable-saturated.
+related_formalizations:
+  - id: "https://github.com/elliotglazer/definable-saturated"
+    relationship: adapts
+    note: "Countable saturation proof only; no continuum hypothesis is used."
+status:
+  scope: >-
+    Four independently stated QE entry points, with no characteristic fixed.
+    The RV entry point concerns well-sorted formulas and assignments in the
+    corrected nontrivial theory. It names totalized RV inversion and leaves
+    VF inversion unnamed. The common theory of canonical trivial-RV structures
+    has a separate library result, outside this Comparator selection.
+    C-minimality and a uniform theorem for the union are not claimed here.
+    No extra mathematical hypotheses occur in the four compared theorems.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+automation:
+  methods:
+    - method: agent
+      models: []
+      framework: "Codex / ChatGPT"
+      tool_setup: "Agent-assisted Lean development and compiler-driven audits."
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "Local development and GitHub Actions verification."
+      prompting_notes: "Author-directed mathematical scope and explicit statement/axiom checks."
+  spend_usd: "not tracked"
+  notes: >-
+    Exact historical model names and total cost were not tracked. Human
+    authorship and responsibility are distinct from the recorded AI assistance.
+fidelity:
+  divergences: >-
+    RV inversion is named and totalized at zero, correcting the paper's
+    inverse-free language specification before Convention 2.5 under the
+    author's clarification. VF inversion remains unnamed. The RV encoding has
+    one absorbing element; pK is the nonzero residue group and pInK includes
+    residue zero. The RV kernel-equality and nontriviality axioms are explicit.
+    Mathlib's multiplicative valuation order reverses the paper's additive
+    order. See LANGUAGE-ERRATA.md for precise corrections and attribution.
+review:
+  status: "self-assessed; no independent human expert review claimed"
+  reviewers: []
+  notes: >-
+    Released v1.1 has fresh compiler, combined-import and thirteen headline
+    type/axiom audits. The module migration and independent statement package
+    require their own fresh verification; release checks alone do not certify
+    them. No Palomar review or acceptance is claimed by this metadata.
+alignment:
+  namespace: "PalomarQE"
+  statements:
+    - source: "Classical quantifier elimination for ACF"
+      lean: "PalomarQE.acf"
+      module: "Solution"
+      status: proved
+      note: "Delegates to JohnsonACF.hasQEb; characteristic unrestricted."
+    - source: "Classical ordinary valued-field ACVF quantifier elimination"
+      lean: "PalomarQE.nontrivial_acvf"
+      module: "Solution"
+      status: proved
+      note: "Nontrivial valuations, ring language with binary valuation comparison."
+    - source: "Trivially valued algebraically closed fields"
+      lean: "PalomarQE.trivial_acvf"
+      module: "Solution"
+      status: proved
+      note: "A separate theory, not the union with nontrivial ACVF."
+    - source: "Yin, Theorem 2.3, corrected RV language"
+      lean: "PalomarQE.rv_acvf"
+      module: "Solution"
+      status: adapted
+      note: "Well-sorted QE; named RV inversion, unnamed VF inversion."
+acknowledgements: >-
+  Lean, Mathlib and their contributors; the Johnson-style argument credited in
+  source headers; Elliot Glazer's attributed Apache-2.0 ultrapower adaptation.
