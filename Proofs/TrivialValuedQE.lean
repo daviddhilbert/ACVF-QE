@@ -72,7 +72,9 @@ private theorem axTrivial_realize (h : M ⊨ axTrivial) (x y : M) :
       y ≠ (0 : Language.ring.Term Empty).realize Empty.elim := by
   have hh := (BoundedFormula.realize_alls.mp h) ![x, y]
   change ((Relations.boundedFormula₂ (L := Language.val) ValRel.le
-    (Term.var (.inr 0)) (Term.var (.inr 1))).iff _).Realize
+    (Term.var (.inr 0)) (Term.var (.inr 1))).iff
+      ((Term.var (.inr (0 : Fin 2))).bdEqual (0 : Language.val.Term (Empty ⊕ Fin 2)) ⊔
+        ((Term.var (.inr (1 : Fin 2))).bdEqual 0).not)).Realize
     (default : Empty → M) ![x, y] at hh
   simpa only [BoundedFormula.realize_iff, BoundedFormula.realize_sup,
     BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, BoundedFormula.realize_rel₂,
