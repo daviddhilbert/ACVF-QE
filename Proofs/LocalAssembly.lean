@@ -1,6 +1,10 @@
-import MaximalRVExtension
-import SubstructureField
-import JohnsonValuedExtension
+module
+
+public import MaximalRVExtension
+public import SubstructureField
+public import JohnsonValuedExtension
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

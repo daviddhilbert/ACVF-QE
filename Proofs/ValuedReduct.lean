@@ -1,5 +1,9 @@
-import MarkerBridge
-import VFValued
+module
+
+public import MarkerBridge
+public import VFValued
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

@@ -37,7 +37,7 @@ if FOCUSED:
     texts["VFField"] = "import Mathlib.Algebra.Field.MinimalAxioms\n" + texts["VFField"]
     texts["VFValued"] = "import Mathlib.RingTheory.Valuation.ValuativeRel.Basic\n" + texts["VFValued"]
 dependencies = {
-    name: [dep for dep in re.findall(r"^import\s+(\S+)", text, re.M) if dep in sources]
+    name: [dep for dep in re.findall(r"^(?:public\s+)?import\s+(\S+)", text, re.M) if dep in sources]
     for name, text in texts.items()
 }
 ordered, active = [], set()

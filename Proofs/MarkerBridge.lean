@@ -1,5 +1,9 @@
-import CanonicalTheory
-import CanonicalQF
+module
+
+public import CanonicalTheory
+public import CanonicalQF
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

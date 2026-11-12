@@ -1,5 +1,9 @@
-import JohnsonAmalgamation
-import JohnsonCriterion
+module
+
+public import JohnsonAmalgamation
+public import JohnsonCriterion
+
+@[expose] public section
 
 /-!
 # Ordinary valued-field quantifier elimination by Johnson's argument

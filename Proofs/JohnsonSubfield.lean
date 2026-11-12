@@ -1,4 +1,8 @@
-import JohnsonLanguagePrime
+module
+
+public import JohnsonLanguagePrime
+
+@[expose] public section
 
 /-! Subfields and their valuation-preserving maps as Johnson-language
 substructures and embeddings. These constructions use the same underlying

@@ -1,5 +1,9 @@
-import CanonicalRV
-import RVValueMap
+module
+
+public import CanonicalRV
+public import RVValueMap
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

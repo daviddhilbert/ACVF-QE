@@ -1,3 +1,5 @@
+module
+
 /-
 **The `VF` sort of a model of the frozen `ACVF` is algebraically closed.**
 
@@ -9,8 +11,10 @@ Ported from `QE/Assembly_val.lean` (namespace `VFAlgClosed`), where it is proved
 own copy of the encoding.  The algebraic content is `Axioms.acfScheme` realised at a root of a monic
 irreducible polynomial, via the Horner fold.
 -/
-import VFValued
-import Mathlib.FieldTheory.IsAlgClosed.Basic
+public import VFValued
+public import Mathlib.FieldTheory.IsAlgClosed.Basic
+
+@[expose] public section
 
 open FirstOrder FirstOrder.Language
 open SpecialTransformations.Milestone0

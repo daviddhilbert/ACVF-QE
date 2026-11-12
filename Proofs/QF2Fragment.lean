@@ -1,3 +1,5 @@
+module
+
 /-
 **The sorted-context fragment** (`VFT2`/`RVT2`/`QF2`/`QFq2`) — from swarm `smw1bwjo2` m6, ported to
 the repaired encoding and verified here (compiled, 0 errors, no `sorry`).  This is the base the
@@ -42,7 +44,9 @@ Sections:
  1-6. the fragment, its image in `Bf n`, `wellSorted_toRV`, `isQF_toRV`, `Eval`, `realize_toRV`
     for both fragments, and closure under the connectives — **no hypothesis on the model**.
 -/
-import Enc
+public import Enc
+
+@[expose] public section
 
 open Classical
 open FirstOrder FirstOrder.Language

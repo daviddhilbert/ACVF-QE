@@ -1,4 +1,8 @@
-import CanonicalResidue
+module
+
+public import CanonicalResidue
+
+@[expose] public section
 
 /-! Arithmetic compatibility of the actual residue field with the definable
 encoded residue sort. These identities support guarded formula translation. -/

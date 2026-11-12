@@ -1,6 +1,10 @@
-import SubstructureRVGroup
-import SubstructureRVCompatibility
-import RVGroupGraph
+module
+
+public import SubstructureRVGroup
+public import SubstructureRVCompatibility
+public import RVGroupGraph
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

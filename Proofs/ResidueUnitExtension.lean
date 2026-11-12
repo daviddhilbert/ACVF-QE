@@ -1,5 +1,9 @@
-import ResidueAlgebraicAdjoin
-import BaseResidueField
+module
+
+public import ResidueAlgebraicAdjoin
+public import BaseResidueField
+
+@[expose] public section
 
 /-!
 Adjoin a field representative of any prescribed unit RV class.

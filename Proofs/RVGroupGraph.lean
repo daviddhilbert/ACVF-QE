@@ -1,5 +1,9 @@
-import RVFrame
-import CommutativeGroupAmalgam
+module
+
+public import RVFrame
+public import CommutativeGroupAmalgam
+
+@[expose] public section
 
 /-! Add the absorbing element to the graph of an actual partial RV group map.
 The result is the pointwise RV relation consumed by the field-extension proof. -/

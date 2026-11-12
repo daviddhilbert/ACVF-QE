@@ -1,4 +1,8 @@
-import ResiduePolynomialLift
+module
+
+public import ResiduePolynomialLift
+
+@[expose] public section
 
 /-!
 The actual base residue subfield inside the ambient residue field.

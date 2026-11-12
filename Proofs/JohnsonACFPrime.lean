@@ -1,4 +1,8 @@
-import JohnsonACFGeometry
+module
+
+public import JohnsonACFGeometry
+
+@[expose] public section
 
 /-!
 Prime fields over arbitrary ring-language substructures, extracted from the

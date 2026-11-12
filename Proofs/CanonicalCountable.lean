@@ -1,4 +1,8 @@
-import CanonicalTheory
+module
+
+public import CanonicalTheory
+
+@[expose] public section
 
 /-! The RV language has finitely many symbols, hence is countable.
 This lets the QE criterion use countably saturated elementary extensions. -/

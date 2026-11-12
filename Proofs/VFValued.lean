@@ -1,3 +1,5 @@
+module
+
 /-
 **A Mathlib `Valuation` on the frozen encoding's `VF` sort.**
 
@@ -15,7 +17,9 @@ Payoff: with `Field (VFType M)` and `Valuation (VFType M) Γ` both available ove
 valuation-theoretic lemmas (`rv:root:lift:vf` / 3.2, `lift:divisible:hull` / 3.5, `e:transc` / 3.7)
 can be *instantiated* at a model of the frozen `ACVF` instead of re-proved.
 -/
-import VFField
+public import VFField
+
+@[expose] public section
 
 open FirstOrder FirstOrder.Language
 open SpecialTransformations.Milestone0

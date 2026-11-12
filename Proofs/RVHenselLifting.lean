@@ -1,5 +1,9 @@
-import RVClassEquality
-import Mathlib.FieldTheory.IsAlgClosed.Basic
+module
+
+public import RVClassEquality
+public import Mathlib.FieldTheory.IsAlgClosed.Basic
+
+@[expose] public section
 
 /-! Root-lifting proofs extracted from QE/RV_henselian.lean at fa3867c. -/
 namespace RVCalc

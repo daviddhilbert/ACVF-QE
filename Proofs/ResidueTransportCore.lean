@@ -1,9 +1,13 @@
-import Mathlib.RingTheory.Valuation.ValuationSubring
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.Data.Finset.Max
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Push
+module
+
+public import Mathlib.RingTheory.Valuation.ValuationSubring
+public import Mathlib.GroupTheory.QuotientGroup.Basic
+public import Mathlib.Data.Finset.Max
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.Push
+
+@[expose] public section
 
 /-!
 Minimal support for ResidueTranscendentalTransport.

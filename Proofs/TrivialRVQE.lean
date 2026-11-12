@@ -1,6 +1,10 @@
-import Enc
-import JohnsonACFMain
-import TaggedCoordinates
+module
+
+public import Enc
+public import JohnsonACFMain
+public import TaggedCoordinates
+
+@[expose] public section
 
 /-! The trivially valued RV model has two copies of the same field.
 The field interpretation retains a tag and the underlying element.

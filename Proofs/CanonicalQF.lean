@@ -1,4 +1,8 @@
-import CanonicalStructure
+module
+
+public import CanonicalStructure
+
+@[expose] public section
 
 /-! Quantifier-free formulas over canonical totalizations can be made well sorted
 at any fixed assignment of sorts to their variables. -/

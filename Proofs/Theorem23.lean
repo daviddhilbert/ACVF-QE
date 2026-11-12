@@ -1,10 +1,14 @@
-import LocalAssembly
-import SubstructureRVPreparation
-import SubstructureRVGraph
-import ProvedResidueClosure
-import ProvedACFExtension
-import CountableQECriterion
-import CanonicalCountable
+module
+
+public import LocalAssembly
+public import SubstructureRVPreparation
+public import SubstructureRVGraph
+public import ProvedResidueClosure
+public import ProvedACFExtension
+public import CountableQECriterion
+public import CanonicalCountable
+
+@[expose] public section
 
 /-! Quantifier elimination in the corrected RV language, with named inversion.
 

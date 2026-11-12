@@ -1,5 +1,9 @@
-import MaximalResidueExtension
-import FiniteValueRepresentative
+module
+
+public import MaximalResidueExtension
+public import FiniteValueRepresentative
+
+@[expose] public section
 
 /-! A maximal compatible field map represents the entire prescribed RV domain.
 The finite and infinite value-degree cases are exhaustive. No divisibility of

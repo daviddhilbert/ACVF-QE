@@ -1,5 +1,9 @@
-import RVLeadingSums
-import ResidueTranscendentalFieldEmbedding
+module
+
+public import RVLeadingSums
+public import ResidueTranscendentalFieldEmbedding
+
+@[expose] public section
 
 /-!
 The value-transcendental one-generator extension, using only monomial data.

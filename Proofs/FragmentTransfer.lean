@@ -1,3 +1,5 @@
+module
+
 /-
 **The fragment transfer, composed** — merged from swarm `smw1bwjo2` m8 (direction d5), accepted
 after compiling and reading it here.  `import Enc` only; 0 errors, no `sorry`, axioms within
@@ -27,7 +29,9 @@ only `QFStep` remains.  Note that the copied `IsNontrivialVF` uses `x ≠ iRVZer
 Check with `.scratch2/sec3/` (a compiled `Enc`): copy this file there and
 `LEAN_PATH=$PWD:$LEAN_PATH lean` it.
 -/
-import Enc
+public import Enc
+
+@[expose] public section
 
 /-
 # The composition: the well-sorted fragment transfer from the QF-type step

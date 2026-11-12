@@ -1,4 +1,8 @@
-import RVClassEquality
+module
+
+public import RVClassEquality
+
+@[expose] public section
 
 /-!
 Leading-term helper copied verbatim from QE/RV_henselian.lean at fa3867c:

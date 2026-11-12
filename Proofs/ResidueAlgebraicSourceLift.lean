@@ -1,4 +1,8 @@
-import ResidueAlgebraicRoot
+module
+
+public import ResidueAlgebraicRoot
+
+@[expose] public section
 
 /-!
 Adjoin a lift of an algebraic residue class on both sides.

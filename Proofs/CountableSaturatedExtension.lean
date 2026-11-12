@@ -1,3 +1,5 @@
+module
+
 /-
 Adapted from Elliot Glazer's `definable-saturated` repository, developed with
 agent-assisted Lean implementation (see the upstream README's provenance).
@@ -12,11 +14,13 @@ ultrapower proofs are preserved in an isolated namespace. Added the adapter
 to MarkerBridge.SatAt and removed unrelated arithmetic and CH/cardinality
 results. Ported from Lean 4.34.0-rc1 to this repository's pinned Lean 4.33.1.
 -/
-import MarkerBridge
-import Mathlib.ModelTheory.Ultraproducts
-import Mathlib.ModelTheory.Encoding
-import Mathlib.Order.Filter.Ultrafilter.Basic
-import Mathlib.Data.Finset.Max
+public import MarkerBridge
+public import Mathlib.ModelTheory.Ultraproducts
+public import Mathlib.ModelTheory.Encoding
+public import Mathlib.Order.Filter.Ultrafilter.Basic
+public import Mathlib.Data.Finset.Max
+
+@[expose] public section
 
 /-!
 Countably saturated elementary extensions from nonprincipal ultrapowers.

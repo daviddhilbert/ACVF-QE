@@ -1,5 +1,9 @@
-import RVHenselLifting
-import ResidueTranscendentalTransport
+module
+
+public import RVHenselLifting
+public import ResidueTranscendentalTransport
+
+@[expose] public section
 
 namespace RVCalc
 

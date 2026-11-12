@@ -1,3 +1,5 @@
+module
+
 /-
 **The `VF` field laws and the `Field` instance on `VFType`, over the frozen encoding.**
 
@@ -13,7 +15,9 @@ as a type, its `Zero`/`One`/`Add`/`Neg`/`Mul` instances, the field laws, and `vf
 Payoff: with `Field (VFType M)` available, `VFValued` can put a genuine Mathlib `Valuation` on it and
 the paper's valuation-theoretic lemmas become instantiable at a model of the frozen `ACVF`.
 -/
-import RVCalc
+public import RVCalc
+
+@[expose] public section
 
 open FirstOrder FirstOrder.Language
 open SpecialTransformations.Milestone0

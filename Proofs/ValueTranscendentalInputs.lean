@@ -1,5 +1,9 @@
-import ValueTranscendentalTransport
-import RVValueMap
+module
+
+public import ValueTranscendentalTransport
+public import RVValueMap
+
+@[expose] public section
 
 /-!
 Primitive inputs for the value-transcendental field extension.

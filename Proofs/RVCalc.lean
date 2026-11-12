@@ -1,3 +1,5 @@
+module
+
 /-
 # The `RV`/`Γ` order calculus in the frozen tagged encoding (member m6, swarm smw1kqpdk)
 
@@ -26,8 +28,10 @@ This file supplies that layer, from the axioms, for an arbitrary `M ⊨ Axioms.A
 No statement here is a hypothesis in disguise: every one is derived from `Axioms.ACVF`
 (`repairRV`, `preorderRV`, `rvAxioms`, `vfField`) by unfolding `allSorted`/`sortedHyps`/`pLe`.
 -/
-import Enc
-import QF2Fragment
+public import Enc
+public import QF2Fragment
+
+@[expose] public section
 
 open FirstOrder FirstOrder.Language
 open SpecialTransformations.Milestone0

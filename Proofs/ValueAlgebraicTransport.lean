@@ -1,6 +1,10 @@
-import ValueTranscendentalInputs
-import RVNthRootLifting
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+module
+
+public import ValueTranscendentalInputs
+public import RVNthRootLifting
+public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+
+@[expose] public section
 
 /-! Yin's finite value-degree step. A least positive value exponent gives
 distinct monomial values below that degree. Consequently the binomial

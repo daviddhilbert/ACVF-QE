@@ -1,5 +1,9 @@
-import VFGeneratedFinish
-import VFAlgClosed
+module
+
+public import VFGeneratedFinish
+public import VFAlgClosed
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

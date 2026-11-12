@@ -1,10 +1,14 @@
+module
+
 /-
 Johnson's Chapter 2 proof: valued-field language, theory, and prime models.
 Extracted from the existing QE/Assembly_val.lean (sections 1–13).
 Proofs are preserved; this module shares its definitions with the other
 LocalJohnson modules instead of repeating standalone snapshots.
 -/
-import Mathlib
+public import Mathlib
+
+@[expose] public section
 
 open FirstOrder FirstOrder.Language
 open scoped FirstOrder

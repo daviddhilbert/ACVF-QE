@@ -1,5 +1,9 @@
-import Mathlib.Algebra.Group.Subgroup.Basic
-import Mathlib.Algebra.Group.Prod
+module
+
+public import Mathlib.Algebra.Group.Subgroup.Basic
+public import Mathlib.Algebra.Group.Prod
+
+@[expose] public section
 
 /-! Glue two compatible homomorphisms from subgroups of a commutative group.
 The construction descends Mathlib's product homomorphism through the existing

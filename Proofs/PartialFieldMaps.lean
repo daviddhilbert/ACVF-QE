@@ -1,5 +1,9 @@
-import Mathlib.Algebra.Field.Subfield.Basic
-import Mathlib.Order.Zorn
+module
+
+public import Mathlib.Algebra.Field.Subfield.Basic
+public import Mathlib.Order.Zorn
+
+@[expose] public section
 
 /-! Directed unions of partial field maps, implemented by their graphs.
 This gives the maximal-map construction used to iterate local adjoining steps.

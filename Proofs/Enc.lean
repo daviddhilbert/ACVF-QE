@@ -1,3 +1,5 @@
+module
+
 /-
 Milestone 0 for: Yimu Yin, "Special transformations in algebraically closed valued fields",
 Annals of Pure and Applied Logic (2010), arXiv:1006.2467.
@@ -15,7 +17,9 @@ Part 6 records the QE target proved in `Theorem23.lean` and the definitions
 for C-minimality. The checked C-minimality theorem lives in Section 3 of
 the special-transformations repository.
 -/
-import Mathlib
+public import Mathlib
+
+@[expose] public section
 
 /-!
 ## Reading guide

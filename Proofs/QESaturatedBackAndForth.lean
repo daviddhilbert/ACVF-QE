@@ -1,6 +1,10 @@
-import Mathlib.ModelTheory.PartialEquiv
-import Mathlib.Order.Zorn
-import Mathlib.Tactic.SplitIfs
+module
+
+public import Mathlib.ModelTheory.PartialEquiv
+public import Mathlib.Order.Zorn
+public import Mathlib.Tactic.SplitIfs
+
+@[expose] public section
 
 /-! Generic chain unions, Zorn exhaustion, and atomic-type packaging extracted
 from QE/BackAndForth.lean. Proofs are unchanged; the namespace is isolated.

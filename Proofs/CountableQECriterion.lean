@@ -1,7 +1,11 @@
-import CountableSaturatedExtension
-import QESaturatedExtension
-import JohnsonCriterion
-import Mathlib.ModelTheory.Skolem
+module
+
+public import CountableSaturatedExtension
+public import QESaturatedExtension
+public import JohnsonCriterion
+public import Mathlib.ModelTheory.Skolem
+
+@[expose] public section
 
 /-! The saturated-embedding criterion for quantifier elimination in a
 countable language. Downward Löwenheim–Skolem reduces each existential test

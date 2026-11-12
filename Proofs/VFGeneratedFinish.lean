@@ -1,5 +1,9 @@
-import ValuedModelMap
-import ValuedReduct
+module
+
+public import ValuedModelMap
+public import ValuedReduct
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

@@ -1,5 +1,9 @@
-import SortedEmbeddings
-import VFValued
+module
+
+public import SortedEmbeddings
+public import VFValued
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

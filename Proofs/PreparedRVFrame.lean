@@ -1,4 +1,8 @@
-import RVKernelResidue
+module
+
+public import RVKernelResidue
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency true
 set_option maxHeartbeats 1000000

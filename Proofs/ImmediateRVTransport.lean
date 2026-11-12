@@ -1,5 +1,9 @@
-import RVClassEquality
-import ResidueTranscendentalTransport
+module
+
+public import RVClassEquality
+public import ResidueTranscendentalTransport
+
+@[expose] public section
 
 /-! Immediate extensions add no RV classes. The extension of a valued field
 map is an independent input (for a henselization, its universal property).

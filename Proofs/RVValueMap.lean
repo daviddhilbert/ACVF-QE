@@ -1,4 +1,8 @@
-import RVClassEquality
+module
+
+public import RVClassEquality
+
+@[expose] public section
 
 /-! Value map definitions and proofs from QE/RV_henselian.lean at fa3867c. -/
 namespace RVCalc

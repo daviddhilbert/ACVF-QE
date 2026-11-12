@@ -1,4 +1,8 @@
-import JohnsonGeometry
+module
+
+public import JohnsonGeometry
+
+@[expose] public section
 
 /-!
 # Johnson's Chapter 2 proof: valued-field amalgamation

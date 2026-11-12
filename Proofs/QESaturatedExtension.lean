@@ -1,6 +1,10 @@
-import MarkerBridge
-import QESaturatedBackAndForth
-import Mathlib.Data.Set.Finite.Basic
+module
+
+public import MarkerBridge
+public import QESaturatedBackAndForth
+public import Mathlib.Data.Set.Finite.Basic
+
+@[expose] public section
 
 /-! Full QE implies extension of substructure embeddings into genuinely
 saturated models. The pushed complete one-variable type is proved finitely

@@ -1,5 +1,9 @@
-import ValueAlgebraicTransport
-import Mathlib.Data.Nat.Find
+module
+
+public import ValueAlgebraicTransport
+public import Mathlib.Data.Nat.Find
+
+@[expose] public section
 
 /-! Source representatives for the finite value-degree case. Once every unit
 RV class has a base-field representative, a value-level power relation can be

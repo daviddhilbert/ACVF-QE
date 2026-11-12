@@ -1,4 +1,8 @@
-import CanonicalStructure
+module
+
+public import CanonicalStructure
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

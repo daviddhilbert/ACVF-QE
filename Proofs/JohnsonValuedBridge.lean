@@ -1,5 +1,9 @@
-import JohnsonMain
-import ValuedFieldExtension
+module
+
+public import JohnsonMain
+public import ValuedFieldExtension
+
+@[expose] public section
 
 /-!
 The checked Johnson theorem applies to the actual valued-field reduct used by

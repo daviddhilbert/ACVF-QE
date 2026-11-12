@@ -1,5 +1,9 @@
-import VFValued
-import SubfieldExtension
+module
+
+public import VFValued
+public import SubfieldExtension
+
+@[expose] public section
 
 /-! Pass from the VF ring of an arbitrary language substructure to its generated
 field, and extend the VF part of a language embedding to that field. -/

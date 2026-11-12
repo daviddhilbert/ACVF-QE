@@ -1,5 +1,9 @@
-import ResidueReduct
-import VFAlgClosed
+module
+
+public import ResidueReduct
+public import VFAlgClosed
+
+@[expose] public section
 
 /-! The ordinary algebraically closed residue-field extension step.
 

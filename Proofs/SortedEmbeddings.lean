@@ -1,4 +1,8 @@
-import CanonicalQF
+module
+
+public import CanonicalQF
+
+@[expose] public section
 
 /-! Correctly sorted preservation suffices for ordinary embeddings once both
 models use canonical totalizations. -/

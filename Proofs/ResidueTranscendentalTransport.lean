@@ -1,4 +1,8 @@
-import ResidueTransportCore
+module
+
+public import ResidueTransportCore
+
+@[expose] public section
 
 /-!
 The two-field calculation for Yin's residue-transcendental case.

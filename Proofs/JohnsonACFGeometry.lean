@@ -1,4 +1,8 @@
-import JohnsonCriterion
+module
+
+public import JohnsonCriterion
+
+@[expose] public section
 
 /-!
 The ACF-specific part of Johnson's field-theoretic QE argument, extracted

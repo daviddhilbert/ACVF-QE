@@ -1,4 +1,8 @@
-import Mathlib
+module
+
+public import Mathlib
+
+@[expose] public section
 
 /-!
 Johnson's generic quantifier-elimination criterion and its compactness proof.

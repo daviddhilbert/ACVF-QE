@@ -1,5 +1,9 @@
-import JohnsonACFMain
-import JohnsonLanguagePrime
+module
+
+public import JohnsonACFMain
+public import JohnsonLanguagePrime
+
+@[expose] public section
 
 /-! Quantifier elimination for the trivial branch in the ordinary
 valued-field language. Valuation comparisons reduce to zero tests. -/

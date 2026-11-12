@@ -1,6 +1,10 @@
-import CanonicalRVOrder
-import SubstructureValuation
-import CanonicalStructure
+module
+
+public import CanonicalRVOrder
+public import SubstructureValuation
+public import CanonicalStructure
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

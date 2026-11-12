@@ -1,5 +1,9 @@
-import ValuedModelMap
-import CanonicalRVOrder
+module
+
+public import ValuedModelMap
+public import CanonicalRVOrder
+
+@[expose] public section
 
 /-!
 Identify the actual residue field of the valuation extracted from a frozen

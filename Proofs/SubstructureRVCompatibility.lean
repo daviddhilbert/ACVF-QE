@@ -1,5 +1,9 @@
-import CanonicalRV
-import SubstructureValuation
+module
+
+public import CanonicalRV
+public import SubstructureValuation
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

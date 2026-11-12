@@ -1,5 +1,9 @@
-import TypedModelMap
-import CanonicalRV
+module
+
+public import TypedModelMap
+public import CanonicalRV
+
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

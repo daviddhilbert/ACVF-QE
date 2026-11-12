@@ -1,4 +1,8 @@
-import ResidueTransportCore
+module
+
+public import ResidueTransportCore
+
+@[expose] public section
 
 namespace RVCalc
 variable {K Γ₀ : Type*} [Field K] [LinearOrderedCommGroupWithZero Γ₀] {v : Valuation K Γ₀}

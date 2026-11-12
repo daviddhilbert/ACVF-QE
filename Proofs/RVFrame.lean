@@ -1,5 +1,9 @@
-import ResidueTranscendentalTransport
-import RVValueMap
+module
+
+public import ResidueTranscendentalTransport
+public import RVValueMap
+
+@[expose] public section
 
 /-!
 Ordinary laws of the prescribed partial RV-map relation, including its action
