@@ -68,7 +68,7 @@ jobs:
           lake build Challenge Solution
           for source in Challenge Solution; do
             probe=".scratch/local-qe-check/src/Print${source}.lean"
-            printf 'import %s\nimport Lean\nset_option pp.all true\n#print ValPM.ACVF_val\n#print SpecialTransformations.Milestone0.LRV.hornerPoly\n' "$source" > "$probe"
+            printf 'import %s\nimport Lean\nset_option pp.all true\n#print ValPM.ACVF_val\n#print ValPM.axNontrivialF\n#print SpecialTransformations.Milestone0.LRV.hornerPoly\n' "$source" > "$probe"
             lake env lean "$probe" > ".scratch/local-qe-check/logs/Statement${source}.log" 2>&1
           done
 

@@ -1408,7 +1408,9 @@ noncomputable def genericMonicPolyHasRoot (n : ℕ) : Language.val.Sentence :=
 The `x ≠ 0` conjunct is essential and its absence was a real defect: `0` satisfies `v 0 < v 1` in
 *every* valued field, so `∃ x, ¬ (v 1 ≤ v x)` alone is a tautology and says nothing about
 nontriviality.  The sentence below is the one that has to be used. -/
-def axNontrivialF : Language.val.BoundedFormula Empty 1 := ∼((&0) =' 0) ⊓ ∼(leF 1 (&0))
+def axNontrivialF : Language.val.BoundedFormula Empty 1 :=
+  let x : Language.val.Term (Empty ⊕ Fin 1) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 0⟩)
+  ∼(x =' 0) ⊓ ∼(leF 1 x)
 
 /-- **Nontriviality of the valuation**, as a sentence of `L_val`. -/
 def axNontrivial : Language.val.Sentence := axNontrivialF.ex

@@ -879,7 +879,9 @@ def axScale : Language.val.Sentence := axScaleF.alls
 /-- **The theory of valued fields** in the language `L_val`: a field, together with a predicate `v x ≤ v y` which behaves like comparison of valuations. -/ def valField : Language.val.Theory := valFieldCore ∪ {axTotal}
 /-- The `L_val`-sentence "every monic polynomial of degree `n` has a root", read along `valRingHom` from the language of rings. -/ noncomputable def genericMonicPolyHasRoot (n : ℕ) : Language.val.Sentence :=
   valRingHom.onBoundedFormula (Field.genericMonicPolyHasRoot n)
-/-- The valuation is nontrivial: some **nonzero** element lies in the maximal ideal, `v x < v 1`. The `x ≠ 0` conjunct is essential and its absence was a real defect: `0` satisfies `v 0 < v 1` in *every* valued field, so `∃ x, ¬ (v 1 ≤ v x)` alone is a tautology and says nothing about nontriviality. The sentence below is the one that has to be used. -/ def axNontrivialF : Language.val.BoundedFormula Empty 1 := ∼((&0) =' 0) ⊓ ∼(leF 1 (&0))
+/-- The valuation is nontrivial: some **nonzero** element lies in the maximal ideal, `v x < v 1`. The `x ≠ 0` conjunct is essential and its absence was a real defect: `0` satisfies `v 0 < v 1` in *every* valued field, so `∃ x, ¬ (v 1 ≤ v x)` alone is a tautology and says nothing about nontriviality. The sentence below is the one that has to be used. -/ def axNontrivialF : Language.val.BoundedFormula Empty 1 :=
+  let x : Language.val.Term (Empty ⊕ Fin 1) := Term.var (Sum.inr ⟨0, Nat.zero_lt_succ 0⟩)
+  ∼(x =' 0) ⊓ ∼(leF 1 x)
 /-- **Nontriviality of the valuation**, as a sentence of `L_val`. -/ def axNontrivial : Language.val.Sentence := axNontrivialF.ex
 /-- **The theory of nontrivially valued algebraically closed fields in `L_val`.** -/ noncomputable def ACVF_val : Language.val.Theory :=
   valField ∪ genericMonicPolyHasRoot '' {n : ℕ | 0 < n} ∪ {axNontrivial}

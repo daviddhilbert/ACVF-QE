@@ -23,3 +23,8 @@ definitional equality. Finite indices in the Horner polynomial now use explicit
 arithmetic proofs. These retain the mathematical definitions and theorem
 statements. Each change requires fresh compiler, type, axiom and Comparator
 checks; an earlier passing run does not certify a later candidate.
+
+Further compiler-directed preparation exposes helpers used by public
+declarations. The ordinary nontriviality formula uses an explicit finite index
+in both statement and library to avoid elaboration-dependent auxiliary proofs.
+Fresh checks are pending for these changes.
