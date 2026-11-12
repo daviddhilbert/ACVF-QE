@@ -1,0 +1,461 @@
+[
+  {
+    "id": "qe-syntax",
+    "title": "Uniform quantifier elimination",
+    "kind": "definition",
+    "declarations": [
+      {
+        "name": "QECriterion.HasQEb",
+        "file": "Proofs/JohnsonCriterion.lean",
+        "line": 577
+      },
+      {
+        "name": "SpecialTransformations.Milestone0.HasQE",
+        "file": "Proofs/Enc.lean",
+        "line": 1824
+      }
+    ],
+    "dependencies": [],
+    "statement": "For every formula with parameter indices $\\alpha$ and $n$ additional variables,\nthere is one quantifier-free formula equivalent in every model and at every\nassignment. The RV target additionally requires both formulas and assignments\nto respect the VF/RV sorts. Parameter sets need not be finite or countable.",
+    "proof": "",
+    "section": "Languages and precise scope"
+  },
+  {
+    "id": "johnson",
+    "title": "Johnson criterion",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "HQEDerive.hasQE_of_johnson",
+        "file": "Proofs/JohnsonCriterion.lean",
+        "line": 1101
+      },
+      {
+        "name": "HQEDerive.H_of_qfDetermined",
+        "file": "Proofs/JohnsonCriterion.lean",
+        "line": 437
+      },
+      {
+        "name": "BoundedQE.qeExStep_theoryIff",
+        "file": "Proofs/JohnsonCriterion.lean",
+        "line": 1060
+      },
+      {
+        "name": "QECriterion.hasQEb_of_QEAllStep",
+        "file": "Proofs/JohnsonCriterion.lean",
+        "line": 620
+      }
+    ],
+    "dependencies": [
+      "qe-syntax"
+    ],
+    "statement": "Let $T_0\\subseteq T$ in a language of universe level zero. Suppose there are\nprime $T$-models over $T_0$-substructures, amalgamation for $T_0$, and\none-variable existential closure of $T$-models in $T_0$-extensions.\nThen $T$ admits quantifier elimination.",
+    "proof": "Quantifier-free types determine one-variable existential formulas.\nThe checked compactness argument produces uniform formula witnesses.",
+    "section": "ACF and ordinary valued fields"
+  },
+  {
+    "id": "acf-inputs",
+    "title": "Field prime models and amalgamation",
+    "kind": "lemma",
+    "declarations": [
+      {
+        "name": "JohnsonACFPrime.hasPrimeModels_field_acf",
+        "file": "Proofs/JohnsonACFPrime.lean",
+        "line": 273
+      },
+      {
+        "name": "ACFValidation.amalgamation_field",
+        "file": "Proofs/JohnsonACFGeometry.lean",
+        "line": 375
+      },
+      {
+        "name": "ACFValidation.oneEC_field_acf",
+        "file": "Proofs/JohnsonACFGeometry.lean",
+        "line": 348
+      }
+    ],
+    "dependencies": [],
+    "statement": "Fields have prime algebraically closed extensions over ring substructures,\nfield embeddings can be amalgamated, and an algebraically closed field is\none-variable existentially closed in field extensions. No characteristic is fixed.",
+    "proof": "The prime-model construction and polynomial arguments are supplied by the\nchecked field-development modules.",
+    "section": ""
+  },
+  {
+    "id": "acf",
+    "title": "Pure ACF quantifier elimination",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "JohnsonACF.hasQEb",
+        "file": "Proofs/JohnsonACFMain.lean",
+        "line": 14
+      }
+    ],
+    "dependencies": [
+      "johnson",
+      "acf-inputs"
+    ],
+    "statement": "The ring-language theory of algebraically closed fields admits bounded-formula\nquantifier elimination in every characteristic, retaining arbitrary parameter\nindices and finite variable contexts.",
+    "proof": "Apply the bounded version of the Johnson argument to the three proved\nfield inputs.",
+    "section": ""
+  },
+  {
+    "id": "valued-inputs",
+    "title": "Valued-field extension inputs",
+    "kind": "lemma",
+    "declarations": [
+      {
+        "name": "ValPM.hasPrimeModels_ACVF_val",
+        "file": "Proofs/JohnsonLanguagePrime.lean",
+        "line": 1423
+      },
+      {
+        "name": "ValOneEC.hasAmalgamation_valField",
+        "file": "Proofs/JohnsonAmalgamation.lean",
+        "line": 916
+      },
+      {
+        "name": "ValOneEC.oneECIn_of_modelType",
+        "file": "Proofs/JohnsonGeometry.lean",
+        "line": 4185
+      }
+    ],
+    "dependencies": [],
+    "statement": "For the ring language with valuation comparison, the checked prime-model,\namalgamation, and one-variable existential-closure constructions supply the\nJohnson inputs for nontrivially valued ACVF. No characteristic restriction is imposed.",
+    "proof": "The proof develops valuation-compatible field maps, residue-root arguments,\nand amalgamation in the ordinary valued-field language.",
+    "section": ""
+  },
+  {
+    "id": "ordinary",
+    "title": "Nontrivial ordinary ACVF QE",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "hasQE_ACVF_val",
+        "file": "Proofs/JohnsonMain.lean",
+        "line": 23
+      },
+      {
+        "name": "hasQEb_ACVF_val",
+        "file": "Proofs/JohnsonMain.lean",
+        "line": 32
+      }
+    ],
+    "dependencies": [
+      "johnson",
+      "valued-inputs"
+    ],
+    "statement": "Nontrivially valued algebraically closed fields admit quantifier elimination\nin the ring language with the binary valuation-comparison relation.\nBoth ordinary and bounded-formula interfaces are exported.",
+    "proof": "Apply the generic Johnson criterion to the proved valued-field inputs.",
+    "section": ""
+  },
+  {
+    "id": "ordinary-trivial",
+    "title": "Trivial ordinary ACVF QE",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "ValPM.hasQE_ACVF_trivial_val",
+        "file": "Proofs/TrivialValuedQE.lean",
+        "line": 124
+      },
+      {
+        "name": "ValPM.hasQEb_ACVF_trivial_val",
+        "file": "Proofs/TrivialValuedQE.lean",
+        "line": 110
+      }
+    ],
+    "dependencies": [
+      "acf"
+    ],
+    "statement": "The separate theory of trivially valued algebraically closed fields admits\nordinary and bounded-formula quantifier elimination in the same valued-field\nlanguage.",
+    "proof": "Trivial valuation comparison reduces to zero tests; translate to the\nring language and use pure ACF quantifier elimination.",
+    "section": ""
+  },
+  {
+    "id": "saturation",
+    "title": "Genuine small-parameter saturation",
+    "kind": "definition",
+    "declarations": [
+      {
+        "name": "MarkerBridge.SatAt",
+        "file": "Proofs/MarkerBridge.lean",
+        "line": 32
+      }
+    ],
+    "dependencies": [],
+    "statement": "A structure $N$ is $\\kappa$-saturated when each finitely satisfiable\none-variable partial type over any parameter map $A\\to N$, with $|A|<\\kappa$,\nhas a realization in $N$. This definition contains no embedding-extension\nor quantifier-elimination conclusion.",
+    "proof": "",
+    "section": "Saturation and the generic embedding criterion"
+  },
+  {
+    "id": "ultrapower",
+    "title": "Saturated elementary extension",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "CountableSaturatedExtension.exists_saturated_elementary_extension",
+        "file": "Proofs/CountableSaturatedExtension.lean",
+        "line": 251
+      }
+    ],
+    "dependencies": [
+      "saturation"
+    ],
+    "statement": "Every nonempty structure in a countable language has a genuinely\n$\\aleph_1$-saturated elementary extension. Its cardinality need not be\n$\\aleph_1$, and no continuum hypothesis is assumed.",
+    "proof": "A countable nonprincipal ultrapower and the checked realization argument\nsupply saturation. This adapts Elliot Glazer's licensed construction; source\ncredit and Apache-2.0 notices are retained in the repository.",
+    "section": ""
+  },
+  {
+    "id": "sat-criterion",
+    "title": "Countable-language QE criterion",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "CountableQECriterion.fullQE_of_saturatedExtension",
+        "file": "Proofs/CountableQECriterion.lean",
+        "line": 190
+      }
+    ],
+    "dependencies": [
+      "ultrapower",
+      "qe-syntax"
+    ],
+    "statement": "For a countable language with a constant, suppose every embedding of a\nsubstructure of a model $M\\models T$ into a sufficiently saturated\n$N\\models T$ extends to an embedding of all of $M$. Then $T$ has full\nquantifier elimination. The final models and parameter sets are unrestricted.",
+    "proof": "Downward L\\\"owenheim--Skolem reduces the transfer problem to countable\nmodels; the proved ultrapower construction and compactness produce uniform\nquantifier-free formulas.",
+    "section": ""
+  },
+  {
+    "id": "qe-extension",
+    "title": "Embedding extension from QE",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "QESaturatedExtension.extension_of_fullQE",
+        "file": "Proofs/QESaturatedExtension.lean",
+        "line": 138
+      }
+    ],
+    "dependencies": [
+      "saturation",
+      "qe-syntax"
+    ],
+    "statement": "If $T$ has full quantifier elimination, embeddings from model\nsubstructures extend to the whole source model when the target realizes\ntypes over parameter sets smaller than the successor of the source cardinal.",
+    "proof": "Quantifier elimination makes the pushed atomic data finitely satisfiable;\ngenuine saturation and the checked maximal partial-embedding argument finish\none-step extensions and then the full embedding.",
+    "section": ""
+  },
+  {
+    "id": "acf-extension",
+    "title": "Residue-field embedding extension",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "ProvedACFExtension.markerACFSaturatedEmbeddingExtension",
+        "file": "Proofs/ProvedACFExtension.lean",
+        "line": 82
+      }
+    ],
+    "dependencies": [
+      "acf",
+      "qe-extension"
+    ],
+    "statement": "Embeddings of subfields of algebraically closed fields extend into genuinely\nsaturated algebraically closed targets, with the exact ring-language\ninterpretations used by the RV proof.",
+    "proof": "Convert the proved bounded ACF QE to full QE and apply the checked generic\nembedding-extension argument. The former Marker ACF input is discharged.",
+    "section": "Preparing and extending RV embeddings"
+  },
+  {
+    "id": "residue-closure",
+    "title": "Residue fields are algebraically closed",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "ProvedResidueClosure.provedResidueClosure",
+        "file": "Proofs/ProvedResidueClosure.lean",
+        "line": 16
+      }
+    ],
+    "dependencies": [],
+    "statement": "For every valuation on an algebraically closed field, its residue field is\nalgebraically closed. Nontriviality of the valuation is unnecessary.",
+    "proof": "Reuse the checked residue-root argument from the ordinary valued-field\ndevelopment. This is a proved theorem, not an additional Engler--Prestel hypothesis.",
+    "section": ""
+  },
+  {
+    "id": "valued-extension",
+    "title": "Whole valued-field embedding extension",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "JohnsonValuedExtension.markerNotesProposition45",
+        "file": "Proofs/JohnsonValuedExtension.lean",
+        "line": 18
+      }
+    ],
+    "dependencies": [
+      "ordinary",
+      "qe-extension"
+    ],
+    "statement": "The valued-subfield extension statement required by the RV argument follows\nfrom ordinary nontrivial ACVF QE and genuine saturation, through the\nrepository's explicit language-translation bridges.",
+    "proof": "Use the proved ordinary valued-field QE, then translate saturation and the\nresulting embeddings back to the concrete valued-field interface. The former\nMarker-notes premise is discharged.",
+    "section": ""
+  },
+  {
+    "id": "frame",
+    "title": "Compatible prepared RV frame",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "SubstructureRVPreparation.exists_frame",
+        "file": "Proofs/SubstructureRVPreparation.lean",
+        "line": 92
+      }
+    ],
+    "dependencies": [
+      "acf-extension",
+      "residue-closure",
+      "saturation"
+    ],
+    "statement": "Given the actual VF/RV language substructure, a compatible valuation\npresentation, a substructure embedding, and a sufficiently saturated target,\nconstruct a residue embedding and a multiplicative, inverse-closed RV graph\nextending the old RV map. The residue-closure and ACF-extension inputs are\nsupplied by the preceding proved results.",
+    "proof": "Extend the residue-field map and assemble the compatible RV-group data.\nNamed RV inversion supplies the required substructure closure.",
+    "section": ""
+  },
+  {
+    "id": "maximal",
+    "title": "A field map representing the RV graph",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "MaximalRVExtension.exists_field_representing_graph",
+        "file": "Proofs/MaximalRVExtension.lean",
+        "line": 80
+      }
+    ],
+    "dependencies": [],
+    "statement": "Given algebraically closed valued fields, a residue map, a functional\ncompatible RV frame, and a compatible map on a starting subfield, there is\nan enlarged subfield map representing every prescribed RV pair.",
+    "proof": "The residue-algebraic, residue-transcendental, value-algebraic,\nvalue-transcendental, and immediate extension cases feed a maximality\nargument. Its algebraic and frame hypotheses remain explicit in this\nintermediate theorem.",
+    "section": ""
+  },
+  {
+    "id": "preparation",
+    "title": "All RV preparation inputs discharged",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "LocalAssembly.preparation",
+        "file": "Proofs/Theorem23.lean",
+        "line": 47
+      }
+    ],
+    "dependencies": [
+      "frame",
+      "acf-extension",
+      "residue-closure"
+    ],
+    "statement": "The intermediate preparation interface is inhabited by a checked\nconstruction from the actual language substructure and genuine saturation.\nNo independent preparation assumption is left to the public QE caller.",
+    "proof": "Combine the prepared RV frame with the proved residue-closure and\nACF-extension results.",
+    "section": ""
+  },
+  {
+    "id": "rv-extension",
+    "title": "Canonical model embedding extension",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "LocalAssembly.embedding_of_preparedFrame",
+        "file": "Proofs/LocalAssembly.lean",
+        "line": 55
+      },
+      {
+        "name": "LocalAssembly.canonicalExtension_of_preparation",
+        "file": "Proofs/LocalAssembly.lean",
+        "line": 112
+      }
+    ],
+    "dependencies": [
+      "preparation",
+      "maximal",
+      "valued-extension"
+    ],
+    "statement": "For canonical nontrivial ACVF models, an embedding of an actual\nlanguage substructure extends into a sufficiently saturated target.\nThe intermediate conditional preparation input is supplied by the preceding\nchecked preparation theorem.",
+    "proof": "Represent the RV graph in a subfield, extend its valued-field embedding,\nand use the canonical-structure bridges to recover a full tagged-language map.",
+    "section": ""
+  },
+  {
+    "id": "sorting",
+    "title": "Return to the well-sorted fragment",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "CanonicalStructure.hasQE_of_raw_canonical",
+        "file": "Proofs/CanonicalQF.lean",
+        "line": 264
+      }
+    ],
+    "dependencies": [
+      "qe-syntax"
+    ],
+    "statement": "Raw quantifier elimination on the canonical tagged presentations yields\nquantifier elimination for the intended well-sorted VF/RV fragment in every\nmodel of the nontrivial ACVF theory.",
+    "proof": "Canonicalize the tagged presentation and sort the resulting quantifier-free\nformula. This keeps the required VF/RV parameter and variable sorts.",
+    "section": ""
+  },
+  {
+    "id": "rv",
+    "title": "Theorem 2.3: nontrivial RV QE",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "LocalAssembly.fullQE",
+        "file": "Proofs/Theorem23.lean",
+        "line": 52
+      },
+      {
+        "name": "SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination",
+        "file": "Proofs/Theorem23.lean",
+        "line": 71
+      }
+    ],
+    "dependencies": [
+      "sat-criterion",
+      "rv-extension",
+      "sorting"
+    ],
+    "statement": "The nontrivially valued theory in the corrected RV language admits\nquantifier elimination on the well-sorted fragment. The output is well-sorted\nand uniform over all models and assignments, with arbitrary parameter\nindices. The exported theorem has no additional mathematical hypotheses.",
+    "proof": "Apply the proved countable-language criterion to the constructed canonical\nembedding extension, then pass through the canonical and sorting bridges.",
+    "section": "RV quantifier-elimination theorems"
+  },
+  {
+    "id": "rv-trivial",
+    "title": "Canonical trivial RV QE",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "SpecialTransformations.TrivialRV.canonical_trivial_rv_qe",
+        "file": "Proofs/TrivialRVQE.lean",
+        "line": 304
+      }
+    ],
+    "dependencies": [
+      "acf",
+      "qe-syntax"
+    ],
+    "statement": "For a canonical trivially valued RV structure $K\\sqcup K$ of any\nalgebraically closed field $K$, every tagged formula has a well-sorted,\nquantifier-free equivalent, uniform over these structures in every\ncharacteristic and over sorted parameter and variable assignments.",
+    "proof": "Encode the tags by ring-language coordinates, apply ACF QE, and reify\nthe quantifier-free formula back into the sorted RV language.",
+    "section": ""
+  },
+  {
+    "id": "rv-trivial-theory",
+    "title": "QE for the common trivial RV theory",
+    "kind": "theorem",
+    "declarations": [
+      {
+        "name": "SpecialTransformations.TrivialRV.hasQE",
+        "file": "Proofs/TrivialRVTheory.lean",
+        "line": 46
+      }
+    ],
+    "dependencies": [
+      "rv-trivial"
+    ],
+    "statement": "The common sentence theory of canonical trivially valued algebraically\nclosed RV structures admits the well-sorted quantifier-elimination property.\nThis is a separate theory from nontrivial ACVF.",
+    "proof": "Universally close the sorted equivalence on canonical models. The resulting\nsentence belongs to their common theory and therefore transfers to every\nmodel of that theory.",
+    "section": ""
+  }
+]

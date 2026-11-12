@@ -5,6 +5,15 @@ ordinary algebraically closed valued fields, and the corrected RV language for
 Yimu Yin, *Special transformations in algebraically closed valued fields*
 (APAL 2010, arXiv:1006.2467).
 
+## Lean blueprint
+
+[Read the blueprint](https://daviddhilbert.github.io/ACVF-QE/)
+· [Theorem dependency graph](https://daviddhilbert.github.io/ACVF-QE/dependency-graph.svg)
+· [Blueprint source and build instructions](blueprint/README.md)
+
+The blueprint links the ACF, ordinary valued-field, and RV arguments to their
+checked Lean declarations and keeps the trivial and nontrivial valuation cases separate.
+
 ## Theorems
 
 - `JohnsonACF.hasQEb`: pure ACF QE through Johnson's criterion, all characteristics.

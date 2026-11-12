@@ -1,0 +1,16 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage[thms=definition+lemma+proposition+theorem+corollary+remark+assumption+checkedimport]{blueprint}
+\usepackage{source_links}
+\usepackage{dependency_graph}
+\input{common}
+\github{https://github.com/daviddhilbert/ACVF-QE}
+\begin{document}
+\maketitle
+\noindent\href{dependency-graph.svg}{\textbf{Open the theorem dependency graph}}\par
+The graph records selected mathematical dependencies. Each node links to its
+statement and to the checked Lean source. Green nodes have checked Lean implementations.
+\tableofcontents
+\input{content}
+\end{document}
