@@ -64,9 +64,10 @@ manifest_path = BUILD / "manifest.json"
 manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
 fingerprints = {}
 report = []
+dependency_fingerprint = hashlib.sha256((ROOT / "lake-manifest.json").read_bytes()).hexdigest()
 for name in ordered:
     text = texts[name]
-    fingerprint = hashlib.sha256((version + text + "".join(
+    fingerprint = hashlib.sha256((version + dependency_fingerprint + text + "".join(
         fingerprints[dep] for dep in dependencies[name])).encode()).hexdigest()
     fingerprints[name] = fingerprint
     source, olean, log = SRC / (name + ".lean"), LIB / (name + ".olean"), LOG / (name + ".log")

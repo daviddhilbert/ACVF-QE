@@ -66,6 +66,13 @@ proofs. `scripts/verify.py` checks all shipped modules, performs a fresh combine
 import and prints the headline types and axiom dependencies. Its cache and logs
 are confined to `.scratch/local-qe-check`.
 
+Six general model-theoretic and field-map modules now have their sole proof
+implementation in the pinned `hilbert-mathlib` dependency. Their original
+module paths remain as compatibility imports, with unchanged declaration
+names and statements. [SHARED-FOUNDATION.json](SHARED-FOUNDATION.json) records
+the exact provider and source identities. Run
+`python3 scripts/check_shared_foundation.py` to check those identities.
+
 The shared `Proofs/Enc.lean` retains the definitions for C-minimality.
 The checked C-minimality theorem is in
 [Section 3 of the paper repository](https://github.com/daviddhilbert/special-transformations/blob/e4ece39cba56540ef7f2be4fa21b365b640a8c7f/Section3/CMinimal.lean).
@@ -85,7 +92,9 @@ the final theorem has no restriction to countable models or parameter sets.
 Sources were extracted from `daviddhilbert/special-transformations` with the
 author's authorization. `SOURCE-MANIFEST.json` records original paths and exact
 source hashes for the initial extraction; later documentation corrections may
-change comments without changing the Lean declarations. Unrelated experimental
+change comments without changing the Lean declarations. The later shared
+foundation extraction is recorded separately in SHARED-FOUNDATION.json.
+Unrelated experimental
 snapshots are omitted. The paper-specific namespaces are retained to identify
 the exact statement proved.
 

@@ -59,6 +59,12 @@ jobs:
           MATHLIB_CACHE_GET_URL: https://cache.mathlib.org/mathlib4
         run: lake exe cache get
 
+      - name: Check shared proof ownership and provenance
+        run: python3 scripts/check_shared_foundation.py
+
+      - name: Build the pinned shared foundation and QE library
+        run: lake build ACVFQE
+
       - name: Check the QE modules and headline axioms
         run: lake env python3 scripts/verify.py
 

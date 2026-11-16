@@ -1,0 +1,61 @@
+{
+  "provider": "daviddhilbert/hilbert-mathlib",
+  "revision": "a26c12d71f83356ad48442b782be67ff01bd3f18",
+  "public_names": "unchanged",
+  "modules": [
+    {
+      "path": "Proofs/CommutativeGroupAmalgam.lean",
+      "module": "CommutativeGroupAmalgam",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.CommutativeGroupAmalgam",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/CommutativeGroupAmalgam.lean",
+      "extracted_sha256": "4d425af4c372ee2178decb8c888d0dc6dc90ecb335733496bc6690b5386f83a2",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/478dd4bdd19c1fc1b75750b137f73d1eac5c4dfa/Proofs/CommutativeGroupAmalgam.lean",
+      "compatibility_sha256": "d13b954d1f6ec7b05f2e1deb345e6bbf5711f64586a76e52d93717e7980dca99"
+    },
+    {
+      "path": "Proofs/JohnsonCriterion.lean",
+      "module": "JohnsonCriterion",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.JohnsonCriterion",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/JohnsonCriterion.lean",
+      "extracted_sha256": "745e2b26dc601585c2878ab6b56ca2ef75fdfa47a2cdc006e7e19edbc16e55f2",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/478dd4bdd19c1fc1b75750b137f73d1eac5c4dfa/Proofs/JohnsonCriterion.lean",
+      "compatibility_sha256": "d91a06762b82bd328646a18fcc5f7f2c3813e5efd6f97cee6dd9d40c22ab1baa"
+    },
+    {
+      "path": "Proofs/PartialFieldMaps.lean",
+      "module": "PartialFieldMaps",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.PartialFieldMaps",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/PartialFieldMaps.lean",
+      "extracted_sha256": "a3fdad2ce6df5eef70381cc5392a6e09844581187a6cf66988f0daf64a90c7d1",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/478dd4bdd19c1fc1b75750b137f73d1eac5c4dfa/Proofs/PartialFieldMaps.lean",
+      "compatibility_sha256": "893aeccbdca1b44f073c48cc6fd00008dce3b7d391fd4fe3ffcee44280859bb2"
+    },
+    {
+      "path": "Proofs/QESaturatedBackAndForth.lean",
+      "module": "QESaturatedBackAndForth",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.QESaturatedBackAndForth",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/QESaturatedBackAndForth.lean",
+      "extracted_sha256": "7b1f2dc3b7a37c0f600437fc25e2f16a009351ec4dacd74f9182b9f705f4e38b",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/478dd4bdd19c1fc1b75750b137f73d1eac5c4dfa/Proofs/QESaturatedBackAndForth.lean",
+      "compatibility_sha256": "ec98b83a5b7fac4373accee40182b110e6e5e1a59ac5f277c88c191a3b2d797f"
+    },
+    {
+      "path": "Proofs/ResidueTransportCore.lean",
+      "module": "ResidueTransportCore",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.ResidueTransportCore",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/ResidueTransportCore.lean",
+      "extracted_sha256": "d70e898a3fe2b6de3b8fae09f8ce22e10eed224206eee68d700580541f4fa983",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/478dd4bdd19c1fc1b75750b137f73d1eac5c4dfa/Proofs/ResidueTransportCore.lean",
+      "compatibility_sha256": "7da82788d64928b7f36710bb0379965bc3e9cfc6e555a2734c4d78db2f5485a8"
+    },
+    {
+      "path": "Proofs/SubfieldExtension.lean",
+      "module": "SubfieldExtension",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.SubfieldExtension",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/SubfieldExtension.lean",
+      "extracted_sha256": "85b6a04f5cd10c3b2cbd3c3966eeec98e609ded9f2e4fab5f0978d32ee926cae",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/478dd4bdd19c1fc1b75750b137f73d1eac5c4dfa/Proofs/SubfieldExtension.lean",
+      "compatibility_sha256": "7f9e26749fc07ffdf6a71f066b037c9ad8026efba2d327cf384a541aa374e65a"
+    }
+  ]
+}

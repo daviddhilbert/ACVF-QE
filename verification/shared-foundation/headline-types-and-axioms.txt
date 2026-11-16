@@ -1,0 +1,58 @@
+@CountableQECriterion.fullQE_of_saturatedExtension : ∀ {L : FirstOrder.Language} [Countable L.Symbols] {T : L.Theory},
+  Nonempty (L.Functions (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))) →
+    @MarkerBridge.SaturatedEmbeddingExtension L T → @MarkerBridge.FullQE L T
+'CountableQECriterion.fullQE_of_saturatedExtension' depends on axioms: [propext, Classical.choice, Quot.sound]
+CountableSaturatedExtension.exists_saturated_elementary_extension : ∀ (L : FirstOrder.Language) [Countable L.Symbols]
+  (M : Type) [inst : L.Structure M] [Nonempty M],
+  ∃ N sN,
+    And
+      (@MarkerBridge.SatAt L N sN
+        (@Order.succ Cardinal.{0} (@PartialOrder.toPreorder Cardinal.{0} Cardinal.partialOrder) Cardinal.instSuccOrder
+          Cardinal.aleph0))
+      (Nonempty (@FirstOrder.Language.ElementaryEmbedding L M N (@inferInstance (L.Structure M) inst) sN))
+'CountableSaturatedExtension.exists_saturated_elementary_extension' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+JohnsonACF.hasQEb : @QECriterion.HasQEb FirstOrder.Language.ring ACFValidation.acf
+'JohnsonACF.hasQEb' depends on axioms: [propext, Classical.choice, Quot.sound]
+JohnsonValuedExtension.markerNotesProposition45 : ValuedFieldExtension.MarkerNotesProposition45
+'JohnsonValuedExtension.markerNotesProposition45' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvedACFExtension.markerACFSaturatedEmbeddingExtension : ResidueEmbeddingExtension.MarkerACFSaturatedEmbeddingExtension
+'ProvedACFExtension.markerACFSaturatedEmbeddingExtension' depends on axioms: [propext, Classical.choice, Quot.sound]
+ProvedResidueClosure.provedResidueClosure : ResidueEmbeddingExtension.EPAlgebraicallyClosedResidue
+'ProvedResidueClosure.provedResidueClosure' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination : SpecialTransformations.Milestone0.HasQE
+  SpecialTransformations.Milestone0.Axioms.ACVF
+'SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SpecialTransformations.TrivialRV.canonical_trivial_rv_qe : ∀ (α : Type)
+  (sα : α → SpecialTransformations.Milestone0.SortTag) (n : Nat)
+  (sn : Fin n → SpecialTransformations.Milestone0.SortTag)
+  (φ : SpecialTransformations.Milestone0.LRV.BoundedFormula α n),
+  ∃ ψ,
+    And (@FirstOrder.Language.BoundedFormula.IsQF SpecialTransformations.Milestone0.LRV α n ψ)
+      (And (@SpecialTransformations.Milestone0.LRV.WellSorted α sα n sn ψ)
+        (∀ (K : Type) [inst : Field K] [@IsAlgClosed K inst] (v : α → Sum K K) (a : Fin n → Sum K K),
+          (∀ (i : α),
+              @SpecialTransformations.Milestone0.sortEval (Sum K K)
+                (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) (sα i) (v i)) →
+            (∀ (i : Fin n),
+                @SpecialTransformations.Milestone0.sortEval (Sum K K)
+                  (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) (sn i) (a i)) →
+              Iff
+                (@FirstOrder.Language.BoundedFormula.Realize SpecialTransformations.Milestone0.LRV (Sum K K)
+                  (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) α n φ v a)
+                (@FirstOrder.Language.BoundedFormula.Realize SpecialTransformations.Milestone0.LRV (Sum K K)
+                  (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) α n ψ v a)))
+'SpecialTransformations.TrivialRV.canonical_trivial_rv_qe' depends on axioms: [propext, Classical.choice, Quot.sound]
+SpecialTransformations.TrivialRV.hasQE : SpecialTransformations.Milestone0.HasQE SpecialTransformations.TrivialRV.theory
+'SpecialTransformations.TrivialRV.hasQE' depends on axioms: [propext, Classical.choice, Quot.sound]
+ValPM.hasQE_ACVF_trivial_val : @QECriterion.HasQE FirstOrder.Language.val ValPM.ACVFTrivial_val
+'ValPM.hasQE_ACVF_trivial_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+ValPM.hasQEb_ACVF_trivial_val : @QECriterion.HasQEb FirstOrder.Language.val ValPM.ACVFTrivial_val
+'ValPM.hasQEb_ACVF_trivial_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+hasQE_ACVF_val : @QECriterion.HasQE FirstOrder.Language.val ValPM.ACVF_val
+'hasQE_ACVF_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+hasQEb_ACVF_val : @QECriterion.HasQEb FirstOrder.Language.val ValPM.ACVF_val
+'hasQEb_ACVF_val' depends on axioms: [propext, Classical.choice, Quot.sound]
