@@ -107,3 +107,8 @@ Other project code retains the source repository's MIT license.
 The development includes agent-assisted formalization. Verification establishes
 the stated Lean theorems and their dependencies; the README identifies the
 precise language and theorems to support mathematical review.
+
+The generic two-coordinate interpretation in `TaggedCoordinates` is now
+provided by pinned hilbert-mathlib, preserving its public types and hypotheses.
+`SHARED-FOUNDATION.json` records seven compatibility paths and their exact
+provider sources. QE retains its own encoding, language and theorem proofs.

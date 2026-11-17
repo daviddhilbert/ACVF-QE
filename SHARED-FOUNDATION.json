@@ -1,6 +1,6 @@
 {
   "provider": "daviddhilbert/hilbert-mathlib",
-  "revision": "a26c12d71f83356ad48442b782be67ff01bd3f18",
+  "revision": "88bb3386f616779bfd87eb453d8a7c899ad63961",
   "public_names": "unchanged",
   "modules": [
     {
@@ -56,6 +56,16 @@
       "extracted_sha256": "85b6a04f5cd10c3b2cbd3c3966eeec98e609ded9f2e4fab5f0978d32ee926cae",
       "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/478dd4bdd19c1fc1b75750b137f73d1eac5c4dfa/Proofs/SubfieldExtension.lean",
       "compatibility_sha256": "7f9e26749fc07ffdf6a71f066b037c9ad8026efba2d327cf384a541aa374e65a"
+    },
+    {
+      "path": "Proofs/TaggedCoordinates.lean",
+      "module": "TaggedCoordinates",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.TaggedCoordinates",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/TaggedCoordinates.lean",
+      "extracted_sha256": "ecbf4e9ca59156ba9580b0063c5a882051e6e1dd879da7bdd29e6ba9e5ceaa28",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/a4138c3a7899330d1c77d1ec01f8f29395b5805c/Proofs/TaggedCoordinates.lean",
+      "compatibility_sha256": "6826868d948d4df2715df30900c87c7ee71931be43208b66fe5daf1312eeef7a",
+      "split_generic_core": false
     }
   ]
 }
