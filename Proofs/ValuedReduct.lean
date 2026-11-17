@@ -1,5 +1,11 @@
-import MarkerBridge
-import VFValued
+module
+
+public import MarkerBridge
+public import VFValued
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

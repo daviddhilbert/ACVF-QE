@@ -1,5 +1,11 @@
-import ResidueReduct
-import VFAlgClosed
+module
+
+public import ResidueReduct
+public import VFAlgClosed
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! The ordinary algebraically closed residue-field extension step.
 

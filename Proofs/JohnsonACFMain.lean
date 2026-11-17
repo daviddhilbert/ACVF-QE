@@ -1,4 +1,10 @@
-import JohnsonACFPrime
+module
+
+public import JohnsonACFPrime
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! All-characteristic ACF quantifier elimination from the existing Johnson
 argument in QE/ACF_HasQE.lean. The generic criterion and compactness proof are

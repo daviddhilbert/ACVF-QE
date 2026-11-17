@@ -1,5 +1,11 @@
-import JohnsonAmalgamation
-import JohnsonCriterion
+module
+
+public import JohnsonAmalgamation
+public import JohnsonCriterion
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 # Ordinary valued-field quantifier elimination by Johnson's argument

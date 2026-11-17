@@ -1,5 +1,11 @@
-import Mathlib.ModelTheory.Definability
-import Mathlib.ModelTheory.Complexity
+module
+
+public import Mathlib.ModelTheory.Definability
+public import Mathlib.ModelTheory.Complexity
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Two-coordinate interpretation of first-order syntax.
 Adapted from the checked PairSyntax and PairInterpretation modules of

@@ -1,6 +1,12 @@
-import SubstructureRVGroup
-import SubstructureRVCompatibility
-import RVGroupGraph
+module
+
+public import SubstructureRVGroup
+public import SubstructureRVCompatibility
+public import RVGroupGraph
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

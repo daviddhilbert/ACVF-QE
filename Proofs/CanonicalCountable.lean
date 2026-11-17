@@ -1,4 +1,10 @@
-import CanonicalTheory
+module
+
+public import CanonicalTheory
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! The RV language has finitely many symbols, hence is countable.
 This lets the QE criterion use countably saturated elementary extensions. -/

@@ -1,5 +1,11 @@
-import JohnsonGeometry
-import ResidueEmbeddingExtension
+module
+
+public import JohnsonGeometry
+public import ResidueEmbeddingExtension
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 The algebraic-closedness hypothesis for the actual residue field is discharged

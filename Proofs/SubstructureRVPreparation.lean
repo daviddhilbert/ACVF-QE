@@ -1,6 +1,12 @@
-import SubstructureResidue
-import PreparedRVFrame
-import ResidueEmbeddingExtension
+module
+
+public import SubstructureResidue
+public import PreparedRVFrame
+public import ResidueEmbeddingExtension
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Prepare an arbitrary language substructure by adjoining the full residue
 field. Agreement on the intersection is proved from the original language

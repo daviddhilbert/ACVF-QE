@@ -1,5 +1,11 @@
-import ValuedModelMap
-import CanonicalRVOrder
+module
+
+public import ValuedModelMap
+public import CanonicalRVOrder
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Identify the actual residue field of the valuation extracted from a frozen

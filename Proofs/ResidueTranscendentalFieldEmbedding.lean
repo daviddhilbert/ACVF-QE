@@ -1,6 +1,12 @@
-import ResidueTranscendentalTransport
-import Mathlib.FieldTheory.RatFunc.AsPolynomial
-import Mathlib.Algebra.BigOperators.Field
+module
+
+public import ResidueTranscendentalTransport
+public import Mathlib.FieldTheory.RatFunc.AsPolynomial
+public import Mathlib.Algebra.BigOperators.Field
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 An actual field embedding for Yin's residue-transcendental case.

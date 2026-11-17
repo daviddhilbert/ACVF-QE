@@ -1,6 +1,12 @@
-import RVGroupGraph
-import ResidueUnitExtension
-import ImmediateRVTransport
+module
+
+public import RVGroupGraph
+public import ResidueUnitExtension
+public import ImmediateRVTransport
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! The value-one RV subgroup is naturally the multiplicative group of the
 residue field. This construction includes the evaluation formula needed to

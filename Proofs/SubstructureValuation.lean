@@ -1,4 +1,10 @@
-import SubstructureField
+module
+
+public import SubstructureField
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Preservation of the valuation predicate passes from a substructure's VF
 ring to its generated field. No shared value group is required. -/

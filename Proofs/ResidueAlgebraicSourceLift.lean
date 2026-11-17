@@ -1,4 +1,10 @@
-import ResidueAlgebraicRoot
+module
+
+public import ResidueAlgebraicRoot
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Adjoin a lift of an algebraic residue class on both sides.

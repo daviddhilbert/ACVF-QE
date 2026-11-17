@@ -1,5 +1,11 @@
-import JohnsonMain
-import ValuedFieldExtension
+module
+
+public import JohnsonMain
+public import ValuedFieldExtension
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 The checked Johnson theorem applies to the actual valued-field reduct used by

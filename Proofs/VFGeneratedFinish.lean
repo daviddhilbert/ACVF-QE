@@ -1,5 +1,11 @@
-import ValuedModelMap
-import ValuedReduct
+module
+
+public import ValuedModelMap
+public import ValuedReduct
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

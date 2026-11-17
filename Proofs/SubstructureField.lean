@@ -1,5 +1,11 @@
-import VFValued
-import SubfieldExtension
+module
+
+public import VFValued
+public import SubfieldExtension
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Pass from the VF ring of an arbitrary language substructure to its generated
 field, and extend the VF part of a language embedding to that field. -/

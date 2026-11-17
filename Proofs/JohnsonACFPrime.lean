@@ -1,4 +1,10 @@
-import JohnsonACFGeometry
+module
+
+public import JohnsonACFGeometry
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Prime fields over arbitrary ring-language substructures, extracted from the

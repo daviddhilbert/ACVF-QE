@@ -1,4 +1,10 @@
-import ResiduePolynomialLift
+module
+
+public import ResiduePolynomialLift
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 The actual base residue subfield inside the ambient residue field.

@@ -1,4 +1,10 @@
-import ResidueTranscendentalFieldEmbedding
+module
+
+public import ResidueTranscendentalFieldEmbedding
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Finite residue-degree calculation for the local algebraic unit case of Yin 3.4.

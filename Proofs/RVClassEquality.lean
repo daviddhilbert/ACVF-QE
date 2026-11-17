@@ -1,4 +1,10 @@
-import ResidueTransportCore
+module
+
+public import ResidueTransportCore
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 namespace RVCalc
 variable {K Γ₀ : Type*} [Field K] [LinearOrderedCommGroupWithZero Γ₀] {v : Valuation K Γ₀}

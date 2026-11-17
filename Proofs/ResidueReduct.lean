@@ -1,6 +1,12 @@
-import CanonicalResidueOperations
-import MarkerBridge
-import Mathlib.ModelTheory.Algebra.Ring.Basic
+module
+
+public import CanonicalResidueOperations
+public import MarkerBridge
+public import Mathlib.ModelTheory.Algebra.Ring.Basic
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

@@ -1,5 +1,11 @@
-import ResidueAlgebraicSourceLift
-import ResiduePolynomialLift
+module
+
+public import ResidueAlgebraicSourceLift
+public import ResiduePolynomialLift
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 The local residue-algebraic adjoining step, with polynomial lifts, source

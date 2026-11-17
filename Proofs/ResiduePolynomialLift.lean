@@ -1,5 +1,11 @@
-import ResidueAlgebraicTransport
-import Mathlib.Algebra.Polynomial.Lifts
+module
+
+public import ResidueAlgebraicTransport
+public import Mathlib.Algebra.Polynomial.Lifts
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Lift monic polynomials from the base residue field to the integral base field.

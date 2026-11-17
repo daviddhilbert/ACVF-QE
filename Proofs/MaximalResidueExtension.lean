@@ -1,6 +1,12 @@
-import ResidueUnitExtension
-import PartialFieldMaps
-import RVFrame
+module
+
+public import ResidueUnitExtension
+public import PartialFieldMaps
+public import RVFrame
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Maximal compatible partial field maps contain representatives of every unit

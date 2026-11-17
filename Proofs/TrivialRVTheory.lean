@@ -1,4 +1,10 @@
-import TrivialRVQE
+module
+
+public import TrivialRVQE
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! The separate theory of canonical trivially valued RV structures.
 The presentation uses the common sentence theory of these structures. -/

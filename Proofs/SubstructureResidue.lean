@@ -1,5 +1,11 @@
-import CanonicalResidueOperations
-import SubstructureRVGroup
+module
+
+public import CanonicalResidueOperations
+public import SubstructureRVGroup
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! The residue part of an actual language substructure is a subfield once
 RV inversion is a named function. A language embedding induces an honest

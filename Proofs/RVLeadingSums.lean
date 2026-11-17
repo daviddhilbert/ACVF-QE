@@ -1,4 +1,10 @@
-import RVClassEquality
+module
+
+public import RVClassEquality
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Leading-term helper copied verbatim from QE/RV_henselian.lean at fa3867c:

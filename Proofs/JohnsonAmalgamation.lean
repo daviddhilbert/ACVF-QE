@@ -1,4 +1,10 @@
-import JohnsonGeometry
+module
+
+public import JohnsonGeometry
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 # Johnson's Chapter 2 proof: valued-field amalgamation

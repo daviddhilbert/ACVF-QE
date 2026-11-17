@@ -1,6 +1,12 @@
-import Enc
-import QF2Fragment
-import FragmentTransfer
+module
+
+public import Enc
+public import QF2Fragment
+public import FragmentTransfer
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Canonical totalization of the corrected RV language, including named
 inversion. Naming RV inversion is the author-approved correction to the paper's

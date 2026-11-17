@@ -1,4 +1,10 @@
-import CanonicalQF
+module
+
+public import CanonicalQF
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Correctly sorted preservation suffices for ordinary embeddings once both
 models use canonical totalizations. -/

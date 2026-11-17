@@ -1,4 +1,10 @@
-import CanonicalResidue
+module
+
+public import CanonicalResidue
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Arithmetic compatibility of the actual residue field with the definable
 encoded residue sort. These identities support guarded formula translation. -/

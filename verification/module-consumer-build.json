@@ -1,0 +1,17 @@
+{
+  "scope": "Lean module compatibility; mathematical bodies unchanged",
+  "baseline": "a4138c3a7899330d1c77d1ec01f8f29395b5805c",
+  "consumer_build": "lake build FubiniTheorems",
+  "consumer_build_exit_code": 0,
+  "consumer_build_jobs": 13021,
+  "source_audit": "verification/module-migration.json",
+  "provider_full_library_build": "Not certified by this consumer-only receipt",
+  "dependencies": {
+    "hilbert-mathlib": "89972dda28566ae669329c67b6cd224998a11601"
+  },
+  "independent_source_audit": "lake env python3 scripts/verify.py",
+  "independent_source_audit_exit_code": 0,
+  "fresh_qe_source_modules": 85,
+  "headline_audit_matches_baseline_byte_for_byte": true,
+  "headline_audit_sha256": "f2279d615c2111d1c497735b597a9e8f714e81ae7d67518d293f7e75cd9096e1"
+}

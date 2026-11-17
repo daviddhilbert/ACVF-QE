@@ -1,6 +1,12 @@
-import JohnsonValuedBridge
-import JohnsonSubfield
-import QESaturatedExtension
+module
+
+public import JohnsonValuedBridge
+public import JohnsonSubfield
+public import QESaturatedExtension
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! The ordinary valued-field extension step used by RV quantifier elimination,
 proved from the repository's Johnson theorem and genuine saturation.

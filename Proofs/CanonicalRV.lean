@@ -1,6 +1,12 @@
-import VFValued
-import RVClassEquality
-import ResidueTranscendentalTransport
+module
+
+public import VFValued
+public import RVClassEquality
+public import ResidueTranscendentalTransport
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

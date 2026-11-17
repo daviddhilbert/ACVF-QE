@@ -1,5 +1,11 @@
-import ResidueAlgebraicAdjoin
-import BaseResidueField
+module
+
+public import ResidueAlgebraicAdjoin
+public import BaseResidueField
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Adjoin a field representative of any prescribed unit RV class.

@@ -1,5 +1,11 @@
-import ValueTranscendentalTransport
-import RVValueMap
+module
+
+public import ValueTranscendentalTransport
+public import RVValueMap
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Primitive inputs for the value-transcendental field extension.

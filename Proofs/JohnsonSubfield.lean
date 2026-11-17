@@ -1,4 +1,10 @@
-import JohnsonLanguagePrime
+module
+
+public import JohnsonLanguagePrime
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! Subfields and their valuation-preserving maps as Johnson-language
 substructures and embeddings. These constructions use the same underlying

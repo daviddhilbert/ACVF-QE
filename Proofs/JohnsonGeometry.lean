@@ -1,5 +1,11 @@
-import JohnsonLanguagePrime
-import Mathlib.Algebra.Polynomial.Lifts
+module
+
+public import JohnsonLanguagePrime
+public import Mathlib.Algebra.Polynomial.Lifts
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Johnson's Chapter 2 geometry and one-variable existential closedness.

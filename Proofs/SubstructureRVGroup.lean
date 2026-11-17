@@ -1,6 +1,12 @@
-import CanonicalRVOrder
-import SubstructureValuation
-import CanonicalStructure
+module
+
+public import CanonicalRVOrder
+public import SubstructureValuation
+public import CanonicalStructure
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency false
 

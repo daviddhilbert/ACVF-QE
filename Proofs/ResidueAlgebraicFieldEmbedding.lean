@@ -1,4 +1,10 @@
-import ResidueAlgebraicTransport
+module
+
+public import ResidueAlgebraicTransport
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 The actual finite unit field extension for Yin's residue-algebraic step.

@@ -1,6 +1,12 @@
-import ResidueAlgebraicFieldEmbedding
-import RVHenselLifting
-import RVValueMap
+module
+
+public import ResidueAlgebraicFieldEmbedding
+public import RVHenselLifting
+public import RVValueMap
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 Root existence for the finite residue-algebraic unit extension.

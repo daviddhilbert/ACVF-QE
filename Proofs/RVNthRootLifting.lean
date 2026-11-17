@@ -1,5 +1,11 @@
-import RVHenselLifting
-import ResidueTranscendentalTransport
+module
+
+public import RVHenselLifting
+public import ResidueTranscendentalTransport
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 namespace RVCalc
 

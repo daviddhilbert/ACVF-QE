@@ -1,4 +1,10 @@
-import ResidueTransportCore
+module
+
+public import ResidueTransportCore
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 The two-field calculation for Yin's residue-transcendental case.

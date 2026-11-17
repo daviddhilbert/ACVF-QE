@@ -1,4 +1,10 @@
-import JohnsonCriterion
+module
+
+public import JohnsonCriterion
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-!
 The ACF-specific part of Johnson's field-theoretic QE argument, extracted

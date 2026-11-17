@@ -1,6 +1,12 @@
-import JohnsonACFMain
-import QESaturatedExtension
-import ResidueEmbeddingExtension
+module
+
+public import JohnsonACFMain
+public import QESaturatedExtension
+public import ResidueEmbeddingExtension
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 /-! The pure algebraically closed field extension step, now proved.
 

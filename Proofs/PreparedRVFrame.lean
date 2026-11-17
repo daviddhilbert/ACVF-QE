@@ -1,4 +1,10 @@
-import RVKernelResidue
+module
+
+public import RVKernelResidue
+
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+@[expose] public section
 
 set_option backward.isDefEq.respectTransparency true
 set_option maxHeartbeats 1000000
