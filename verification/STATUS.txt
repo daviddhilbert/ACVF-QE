@@ -1,25 +1,23 @@
-Lean 4.35.0 migration
+Verification receipt, November 18, 2026
 
-The release pins Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679.
-Run lake build and lake env python3 scripts/verify.py for fresh results.
-The combined audit covers ACF and both valuation cases separately in the
-ordinary valued and RV languages. The historical receipt below uses 4.33.1.
+Lean 4.35.0; Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679;
+hilbert-mathlib 88bb3386f616779bfd87eb453d8a7c899ad63961 (7 compatibility imports).
 
-Initial standalone export verification: PASSED.
+lake build ACVFQE: PASS (9154 jobs).
+python3 scripts/check_shared_foundation.py: PASS.
+lake env python3 scripts/verify.py: PASS. The first run compiled all 99 source
+modules afresh in .scratch/local-qe-check; the recorded MODULES.tsv is from the
+confirming second run, which reused those fingerprinted results. No module uses
+sorry. The combined import audits 18 headline declarations
+(AXIOMS.txt); each depends only on propext, Classical.choice and Quot.sound.
+Their full statements match the reviewed baseline verification/headline-types.txt.
 
-Lean 4.33.1; Mathlib 0df444a360eaa60ab8c11dca51a86af692955474.
-Ran lake env python3 scripts/verify.py in this standalone package.
-All 81 shipped modules passed; fresh combined import exited 0.
-The 80 dependency modules are unchanged from the earlier successful 86-module
-paper-workspace check and were reused after source/dependency/compiler
-fingerprint validation. ACVFQE and the combined import were checked afresh.
-The local Lake environment used the installed matching Mathlib and package
-artifacts. The committed manifest pins public Git dependencies.
-A full clean lake build was not run as part of this export verification.
+The headlines are the ACF, ordinary valued-field (trivial and nontrivial) and
+RV-language QE theorems, and the November 18 model-existence theorems:
+Axioms.ACVF has models of characteristic (0,0), (0,p) and (p,p) for every
+prime p (ACVFQE.Models.exists_model_ACVF00/0p/pp), and every algebraically
+closed, nontrivially valued field gives a model (ConcreteValued.model_ACVF).
+The RV headline has no additional mathematical hypotheses.
 
-AXIOMS.txt records exact headline types and audits. The RV headline has no
-additional mathematical hypotheses, and its axiom list contains only propext,
-Classical.choice, and Quot.sound. The inherited, unused C-minimality placeholder
-in Enc is documented in README and is not a dependency of the QE theorems.
-
-No oleans, local package symlinks, credentials, or scratch directories are shipped.
+The inherited, unused C-minimality definition in Enc is documented in README
+and is not a dependency of the QE theorems.

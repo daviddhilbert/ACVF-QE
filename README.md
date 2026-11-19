@@ -34,6 +34,17 @@ checked Lean declarations and keeps the trivial and nontrivial valuation cases s
   and translates the result back to a well-sorted RV formula.
 - `SpecialTransformations.TrivialRV.hasQE`: `HasQE` for the common
   sentence theory of those canonical trivially valued models.
+- `ACVFQE.Models.exists_model_ACVF00`, `exists_model_ACVF0p` and
+  `exists_model_ACVFpp`: `Axioms.ACVF` has models of characteristic `(0,0)`,
+  `(0,p)` and `(p,p)` for every prime `p`, so the RV QE theorem is not vacuous
+  in any characteristic. The models are algebraic closures of `ℚ((t))`, `ℚ_p`
+  and `𝔽_p((t))` with a valuation dominating `ℚ[[t]]`, `ℤ_p` and `𝔽_p[[t]]`
+  (Chevalley's extension theorem). `ConcreteValued.model_ACVF` shows that every
+  algebraically closed, nontrivially valued field gives a model. The concrete
+  structure is ported from special-transformations `Section6/Concrete*.lean`.
+
+`HasQE` quantifies over models in `Type`. This is no restriction for the
+countable language used here.
 
 The paragraph immediately before Convention 2.5 explicitly omits inverse
 symbols from both VF and RV. The author clarified on November 5, 2026 that
@@ -66,7 +77,8 @@ proofs. `scripts/verify.py` checks all shipped modules, performs a fresh combine
 import and prints the headline types and axiom dependencies. Its cache and logs
 are confined to `.scratch/local-qe-check`.
 
-Six general model-theoretic and field-map modules now have their sole proof
+Seven shared modules (six general model-theoretic and field-map modules,
+plus `TaggedCoordinates`) now have their sole proof
 implementation in the pinned `hilbert-mathlib` dependency. Their original
 module paths remain as compatibility imports, with unchanged declaration
 names and statements. [SHARED-FOUNDATION.json](SHARED-FOUNDATION.json) records

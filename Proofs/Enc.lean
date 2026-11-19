@@ -1915,10 +1915,11 @@ def IsCMinimal (M : Type*) [LRV.Structure M] : Prop :=
 
 /-- **Theorem 2.3** (Yin, *Special transformations in algebraically closed valued
 fields*, APAL 2010; quoted there from arXiv:1006.1393, Theorem 3.10): the theory `ACVF`
-admits quantifier elimination. The theorem with the original name is proved
-downstream in `QE/LocalQE/Theorem23.lean`, so the encoding does not import its
-own proof dependencies. Its only hypotheses are the authorized standard
-model-theoretic and valued-field results, stated explicitly there. -/
+admits quantifier elimination. The theorem is proved, without hypotheses, as
+`theorem_2_3_quantifier_elimination` in `Theorem23.lean`, so the encoding does
+not import its own proof dependencies. `ACVFModelExistence` shows that
+`ACVF` has models in every characteristic pair, so the statement is not
+vacuous. `HasQE` quantifies over models in `Type`; the language is countable. -/
 abbrev Theorem23Goal : Prop := HasQE ACVF
 
 /-- **C-minimality over well-sorted parameters**: every subset of the `VF` sort defined by a
@@ -2472,16 +2473,17 @@ def sortedTuples (n m : ℕ) : Set (Fin n ⊕ Fin m → M) :=
   {p | (∀ i, iVF (p (Sum.inl i))) ∧ ∀ j, iRV (p (Sum.inr j))}
 
 /-- A subset of `VF^n × RV^m` is definable over `A` when its membership is given by an
-`L_RV`-formula with parameters in `A`. -/
+`L_RV`-formula with parameters in `A`. This uses Mathlib's unrestricted `Set.Definable`,
+so ill-sorted formulas are allowed, unlike the well-sorted inputs of `HasQE`. -/
 def MixedDefinable (A : Set M) (n m : ℕ) (s : Set (Fin n ⊕ Fin m → M)) : Prop :=
   A.Definable LRV s
 
-/-- The `VF`-dimension `n` of the ambient product `VF^n × RV^m` of a mixed definable set
-(the paper's `dimVF`; see Section 4 of the paper). -/
+/-- The ambient arity `n` of `VF^n × RV^m`. This is not the paper's `dimVF` of the set
+itself (Section 4), which is defined downstream. -/
 def dimVF {n m : ℕ} (_s : Set (Fin n ⊕ Fin m → M)) : ℕ := n
 
-/-- The `RV`-dimension `m` of the ambient product `VF^n × RV^m` of a mixed definable set
-(the paper's `dimRV`). -/
+/-- The ambient arity `m` of `VF^n × RV^m`. This is not the paper's `dimRV` of the set
+itself, which is defined downstream. -/
 def dimRV {n m : ℕ} (_s : Set (Fin n ⊕ Fin m → M)) : ℕ := m
 
 def projRV (n m : ℕ) (s : Set (Fin n ⊕ Fin m → M)) : Set (Fin m → M) :=

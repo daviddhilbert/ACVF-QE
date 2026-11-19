@@ -83,7 +83,8 @@ for name in ordered:
     bad_axioms = [a.strip() for block in re.findall(r"depends on axioms:\s*\[([^]]*)\]", output)
                   for a in block.split(",") if a.strip() not in
                   {"", "propext", "Classical.choice", "choice", "Quot.sound"}]
-    failed = result != 0 or bool(re.search(r"\berror\b", output)) or bool(bad_axioms)
+    uses_sorry = "declaration uses 'sorry'" in output
+    failed = result != 0 or bool(re.search(r"\berror\b", output)) or bool(bad_axioms) or uses_sorry
     report.append(f"{name}\t{result}\t{'FAIL' if failed else 'PASS'}\t{'cached' if cached else 'checked'}")
     (BUILD / "results.tsv").write_text("\n".join(report) + "\n", encoding="utf-8")
     print(report[-1], flush=True)
@@ -111,6 +112,13 @@ headlines = {
     "TrivialValuedQE": ("ValPM.hasQE_ACVF_trivial_val", "ValPM.hasQEb_ACVF_trivial_val"),
     "TrivialRVQE": ("SpecialTransformations.TrivialRV.canonical_trivial_rv_qe",),
     "TrivialRVTheory": ("SpecialTransformations.TrivialRV.hasQE",),
+    "ACVFModelExistence": (
+        "ACVFQE.Models.ConcreteValued.model_ACVF",
+        "ACVFQE.Models.exists_model_ACVF",
+        "ACVFQE.Models.exists_model_ACVF00",
+        "ACVFQE.Models.exists_model_ACVF0p",
+        "ACVFQE.Models.exists_model_ACVFpp",
+    ),
 }
 expected_audits = {name for module, names in headlines.items() if module in ordered for name in names}
 audit = "set_option pp.explicit true\nset_option pp.fullNames true\n" + "".join(
@@ -132,7 +140,40 @@ if not coverage_ok:
 if bad_axioms:
     print(f"Unexpected combined QE axioms: {sorted(bad_axioms)}", file=sys.stderr)
 status = result if result != 0 else int(failed)
-(BUILD / "status.txt").write_text(str(status) + "\n", encoding="utf-8")
 if failed:
     print(output, file=sys.stderr)
+    (BUILD / "status.txt").write_text(str(status) + "\n", encoding="utf-8")
+    sys.exit(status)
+
+# Compare the full headline statements with the reviewed baseline, so that a
+# changed statement fails even when its axioms stay clean. Set
+# UPDATE_HEADLINE_BASELINE=1 only after reviewing an intended statement change.
+if not FOCUSED and targets == [""]:
+    types_source = SRC / "HeadlineTypes.lean"
+    types_source.write_text("".join("import " + name + "\n" for name in ordered)
+                            + "set_option pp.explicit true\nset_option pp.fullNames true\n"
+                            + "".join(f"#check @{name}\n" for name in sorted(expected_audits)),
+                            encoding="utf-8")
+    checked = subprocess.run(["lean", "-R", str(SRC), str(types_source)], env=env,
+                             capture_output=True, text=True)
+    (LOG / "HeadlineTypes.log").write_text(checked.stdout + checked.stderr, encoding="utf-8")
+    current = re.sub(r"^\S*HeadlineTypes\.lean:\d+:\d+: (info: )?", "",
+                     checked.stdout + checked.stderr, flags=re.M)
+    baseline_path = ROOT / "verification" / "headline-types.txt"
+    if checked.returncode != 0 or re.search(r"\berror\b", current):
+        print(current, file=sys.stderr)
+        status = 1
+    elif os.environ.get("UPDATE_HEADLINE_BASELINE") == "1":
+        baseline_path.write_text(current, encoding="utf-8")
+        print(f"Updated {baseline_path.relative_to(ROOT)}")
+    elif not baseline_path.exists() or baseline_path.read_text(encoding="utf-8") != current:
+        import difflib
+        old = baseline_path.read_text(encoding="utf-8").splitlines() if baseline_path.exists() else []
+        sys.stderr.writelines(line + "\n" for line in difflib.unified_diff(
+            old, current.splitlines(), "verification/headline-types.txt", "current", lineterm=""))
+        print("Headline statements differ from the reviewed baseline", file=sys.stderr)
+        status = 1
+    else:
+        print(f"Headline statements match the reviewed baseline ({len(expected_audits)} declarations)")
+(BUILD / "status.txt").write_text(str(status) + "\n", encoding="utf-8")
 sys.exit(status)

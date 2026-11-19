@@ -1,0 +1,91 @@
+@ACVFQE.Models.ConcreteValued.model_ACVF : ∀ {K Γ : Type} [inst : Field K] [inst_1 : LinearOrderedCommGroupWithZero Γ]
+  (v :
+    @Valuation K Γ (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1)
+      (@DivisionRing.toRing K (@Field.toDivisionRing K inst)))
+  [@IsAlgClosed K inst],
+  (∃ x,
+      And
+        (@Ne K x
+          (@OfNat.ofNat K (nat_lit 0)
+            (@Zero.toOfNat0 K
+              (@MulZeroClass.toZero K
+                (@instMulZeroClassOfSemiring K
+                  (@CommSemiring.toSemiring K (@Semifield.toCommSemiring K (@Field.toSemifield K inst))))))))
+        (@LT.lt Γ
+          (@Preorder.toLT Γ
+            (@PartialOrder.toPreorder Γ
+              (@SemilatticeInf.toPartialOrder Γ
+                (@Lattice.toSemilatticeInf Γ
+                  (@DistribLattice.toLattice Γ
+                    (@instDistribLatticeOfLinearOrder Γ
+                      (@LinearOrderedCommMonoidWithZero.toLinearOrder Γ
+                        (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1))))))))
+          (@DFunLike.coe
+            (@Valuation K Γ (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1)
+              (@DivisionRing.toRing K (@Field.toDivisionRing K inst)))
+            K (fun x => Γ)
+            (@Valuation.instFunLike K Γ (@DivisionRing.toRing K (@Field.toDivisionRing K inst))
+              (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1))
+            v x)
+          (@OfNat.ofNat Γ (nat_lit 1)
+            (@One.toOfNat1 Γ
+              (@InvOneClass.toOne Γ
+                (@DivInvOneMonoid.toInvOneClass Γ
+                  (@DivisionMonoid.toDivInvOneMonoid Γ
+                    (@DivisionCommMonoid.toDivisionMonoid Γ
+                      (@CommGroupWithZero.toDivisionCommMonoid Γ
+                        (@LinearOrderedCommGroupWithZero.toCommGroupWithZero Γ inst_1)))))))))) →
+    @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV
+      (@ACVFQE.Models.ConcreteValued.Carrier K Γ inst inst_1 v)
+      (@ACVFQE.Models.ConcreteValued.closedStructure K Γ inst inst_1 v) SpecialTransformations.Milestone0.Axioms.ACVF
+ACVFQE.Models.exists_model_ACVF : ∃ M x,
+  @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x
+    SpecialTransformations.Milestone0.Axioms.ACVF
+ACVFQE.Models.exists_model_ACVF00 : ∃ M x,
+  @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x
+    SpecialTransformations.Milestone0.Axioms.ACVF00
+ACVFQE.Models.exists_model_ACVF0p : ∀ (p : Nat) [hp : Fact (Nat.Prime p)],
+  ∃ M x, @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x (ACVFQE.Models.ACVF0p p)
+ACVFQE.Models.exists_model_ACVFpp : ∀ (p : Nat) [hp : Fact (Nat.Prime p)],
+  ∃ M x, @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x (ACVFQE.Models.ACVFpp p)
+@CountableQECriterion.fullQE_of_saturatedExtension : ∀ {L : FirstOrder.Language} [Countable L.Symbols] {T : L.Theory},
+  Nonempty (L.Functions (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))) →
+    @MarkerBridge.SaturatedEmbeddingExtension L T → @MarkerBridge.FullQE L T
+CountableSaturatedExtension.exists_saturated_elementary_extension : ∀ (L : FirstOrder.Language) [Countable L.Symbols]
+  (M : Type) [inst : L.Structure M] [Nonempty M],
+  ∃ N sN,
+    And
+      (@MarkerBridge.SatAt L N sN
+        (@Order.succ Cardinal.{0} (@PartialOrder.toPreorder Cardinal.{0} Cardinal.partialOrder) Cardinal.instSuccOrder
+          Cardinal.aleph0))
+      (Nonempty (@FirstOrder.Language.ElementaryEmbedding L M N (@inferInstance (L.Structure M) inst) sN))
+JohnsonACF.hasQEb : @QECriterion.HasQEb FirstOrder.Language.ring ACFValidation.acf
+JohnsonValuedExtension.markerNotesProposition45 : ValuedFieldExtension.MarkerNotesProposition45
+ProvedACFExtension.markerACFSaturatedEmbeddingExtension : ResidueEmbeddingExtension.MarkerACFSaturatedEmbeddingExtension
+ProvedResidueClosure.provedResidueClosure : ResidueEmbeddingExtension.EPAlgebraicallyClosedResidue
+SpecialTransformations.Milestone0.theorem_2_3_quantifier_elimination : SpecialTransformations.Milestone0.HasQE
+  SpecialTransformations.Milestone0.Axioms.ACVF
+SpecialTransformations.TrivialRV.canonical_trivial_rv_qe : ∀ (α : Type)
+  (sα : α → SpecialTransformations.Milestone0.SortTag) (n : Nat)
+  (sn : Fin n → SpecialTransformations.Milestone0.SortTag)
+  (φ : SpecialTransformations.Milestone0.LRV.BoundedFormula α n),
+  ∃ ψ,
+    And (@FirstOrder.Language.BoundedFormula.IsQF SpecialTransformations.Milestone0.LRV α n ψ)
+      (And (@SpecialTransformations.Milestone0.LRV.WellSorted α sα n sn ψ)
+        (∀ (K : Type) [inst : Field K] [@IsAlgClosed K inst] (v : α → Sum K K) (a : Fin n → Sum K K),
+          (∀ (i : α),
+              @SpecialTransformations.Milestone0.sortEval (Sum K K)
+                (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) (sα i) (v i)) →
+            (∀ (i : Fin n),
+                @SpecialTransformations.Milestone0.sortEval (Sum K K)
+                  (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) (sn i) (a i)) →
+              Iff
+                (@FirstOrder.Language.BoundedFormula.Realize SpecialTransformations.Milestone0.LRV (Sum K K)
+                  (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) α n φ v a)
+                (@FirstOrder.Language.BoundedFormula.Realize SpecialTransformations.Milestone0.LRV (Sum K K)
+                  (@SpecialTransformations.TrivialRV.instStructureLRVSumOfField_trivialRVQE_1 K inst) α n ψ v a)))
+SpecialTransformations.TrivialRV.hasQE : SpecialTransformations.Milestone0.HasQE SpecialTransformations.TrivialRV.theory
+ValPM.hasQE_ACVF_trivial_val : @QECriterion.HasQE FirstOrder.Language.val ValPM.ACVFTrivial_val
+ValPM.hasQEb_ACVF_trivial_val : @QECriterion.HasQEb FirstOrder.Language.val ValPM.ACVFTrivial_val
+hasQE_ACVF_val : @QECriterion.HasQE FirstOrder.Language.val ValPM.ACVF_val
+hasQEb_ACVF_val : @QECriterion.HasQEb FirstOrder.Language.val ValPM.ACVF_val

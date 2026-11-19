@@ -1,3 +1,58 @@
+@ACVFQE.Models.ConcreteValued.model_ACVF : ∀ {K Γ : Type} [inst : Field K] [inst_1 : LinearOrderedCommGroupWithZero Γ]
+  (v :
+    @Valuation K Γ (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1)
+      (@DivisionRing.toRing K (@Field.toDivisionRing K inst)))
+  [@IsAlgClosed K inst],
+  (∃ x,
+      And
+        (@Ne K x
+          (@OfNat.ofNat K (nat_lit 0)
+            (@Zero.toOfNat0 K
+              (@MulZeroClass.toZero K
+                (@instMulZeroClassOfSemiring K
+                  (@CommSemiring.toSemiring K (@Semifield.toCommSemiring K (@Field.toSemifield K inst))))))))
+        (@LT.lt Γ
+          (@Preorder.toLT Γ
+            (@PartialOrder.toPreorder Γ
+              (@SemilatticeInf.toPartialOrder Γ
+                (@Lattice.toSemilatticeInf Γ
+                  (@DistribLattice.toLattice Γ
+                    (@instDistribLatticeOfLinearOrder Γ
+                      (@LinearOrderedCommMonoidWithZero.toLinearOrder Γ
+                        (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1))))))))
+          (@DFunLike.coe
+            (@Valuation K Γ (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1)
+              (@DivisionRing.toRing K (@Field.toDivisionRing K inst)))
+            K (fun x => Γ)
+            (@Valuation.instFunLike K Γ (@DivisionRing.toRing K (@Field.toDivisionRing K inst))
+              (@LinearOrderedCommGroupWithZero.toLinearOrderedCommMonoidWithZero Γ inst_1))
+            v x)
+          (@OfNat.ofNat Γ (nat_lit 1)
+            (@One.toOfNat1 Γ
+              (@InvOneClass.toOne Γ
+                (@DivInvOneMonoid.toInvOneClass Γ
+                  (@DivisionMonoid.toDivInvOneMonoid Γ
+                    (@DivisionCommMonoid.toDivisionMonoid Γ
+                      (@CommGroupWithZero.toDivisionCommMonoid Γ
+                        (@LinearOrderedCommGroupWithZero.toCommGroupWithZero Γ inst_1)))))))))) →
+    @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV
+      (@ACVFQE.Models.ConcreteValued.Carrier K Γ inst inst_1 v)
+      (@ACVFQE.Models.ConcreteValued.closedStructure K Γ inst inst_1 v) SpecialTransformations.Milestone0.Axioms.ACVF
+'ACVFQE.Models.ConcreteValued.model_ACVF' depends on axioms: [propext, Classical.choice, Quot.sound]
+ACVFQE.Models.exists_model_ACVF : ∃ M x,
+  @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x
+    SpecialTransformations.Milestone0.Axioms.ACVF
+'ACVFQE.Models.exists_model_ACVF' depends on axioms: [propext, Classical.choice, Quot.sound]
+ACVFQE.Models.exists_model_ACVF00 : ∃ M x,
+  @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x
+    SpecialTransformations.Milestone0.Axioms.ACVF00
+'ACVFQE.Models.exists_model_ACVF00' depends on axioms: [propext, Classical.choice, Quot.sound]
+ACVFQE.Models.exists_model_ACVF0p : ∀ (p : Nat) [hp : Fact (Nat.Prime p)],
+  ∃ M x, @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x (ACVFQE.Models.ACVF0p p)
+'ACVFQE.Models.exists_model_ACVF0p' depends on axioms: [propext, Classical.choice, Quot.sound]
+ACVFQE.Models.exists_model_ACVFpp : ∀ (p : Nat) [hp : Fact (Nat.Prime p)],
+  ∃ M x, @FirstOrder.Language.Theory.Model SpecialTransformations.Milestone0.LRV M x (ACVFQE.Models.ACVFpp p)
+'ACVFQE.Models.exists_model_ACVFpp' depends on axioms: [propext, Classical.choice, Quot.sound]
 @CountableQECriterion.fullQE_of_saturatedExtension : ∀ {L : FirstOrder.Language} [Countable L.Symbols] {T : L.Theory},
   Nonempty (L.Functions (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))) →
     @MarkerBridge.SaturatedEmbeddingExtension L T → @MarkerBridge.FullQE L T

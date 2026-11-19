@@ -63,7 +63,8 @@ terms. Thus the extension test can be stated on substructures.
 
 The formulation is generic in the language and theory. In particular, no
 valued-field extension assertion or ACVF QE statement is part of the quote.
-Source: https://ebooks.karbust.me/Mathematics/David%20Marker%20-%20Model%20Theory%20(2002)%20%5B978-0-387-22734-4%5D.pdf
+Source: D. Marker, *Model Theory: An Introduction*, Graduate Texts in
+Mathematics 217, Springer, 2002, Proposition 4.3.28.
 -/
 def MarkerProposition4328 : Prop :=
   ∀ (L : Language), Nonempty (L.Functions 0) →

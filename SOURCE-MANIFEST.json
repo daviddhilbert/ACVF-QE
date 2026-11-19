@@ -323,5 +323,64 @@
       "source": "QE/LocalQE/Theorem23.lean",
       "sha256": "4293e0c33e024394d44da5cda911f560770914f8a527f83f3a6b9ceecf60bf31"
     }
+  },
+  "ported_models": {
+    "repository": "https://github.com/daviddhilbert/special-transformations",
+    "revision": "423c767a84b709487da7e798f70f0639545db1ac",
+    "note": "November 18, 2026: concrete ACVF model modules copied from Section6/ for the model-existence theorems. Changes: one provenance comment line, imports renamed to flat module names, namespace SpecialTransformations.Section6 renamed to ACVFQE.Models, and model_ACVF added to ConcreteACVF. Hashes are of the unmodified sources at the revision.",
+    "modules": {
+      "AngularComponent": {
+        "source": "Section6/AngularComponent.lean",
+        "sha256": "bea27d75959da594c960f7ba8b737d0c110ba2672c06be187aa3fc1b7ba3e1fa"
+      },
+      "ConcreteACVF": {
+        "source": "Section6/ConcreteACVF.lean",
+        "sha256": "10e261d1d9a6886a3eb27452adcc7feea2b5e56e1e9ea71374b4083f20c2bbdf"
+      },
+      "ConcreteCharacteristic": {
+        "source": "Section6/ConcreteCharacteristic.lean",
+        "sha256": "f92e88995c510c3e81cc4e22b6955b7512d979435253f3fc31fdd3291a72c483"
+      },
+      "ConcreteExtension": {
+        "source": "Section6/ConcreteExtension.lean",
+        "sha256": "77252b4e3e613cf2e6cd17a6bdd4c6eed9793cd807f5bd1c9579a784b8fc887e"
+      },
+      "ConcreteFieldAxioms": {
+        "source": "Section6/ConcreteFieldAxioms.lean",
+        "sha256": "d5769b0da6ae1d7065b5779538e56b6bb94c98ea554e5bc3496d12512544add5"
+      },
+      "ConcreteLogic": {
+        "source": "Section6/ConcreteLogic.lean",
+        "sha256": "3478f5e78e5b47f2a4b9c37bae8f87e1f1bf3cd2945a837ef5647e0d4dd4c8fb"
+      },
+      "ConcreteRV": {
+        "source": "Section6/ConcreteRV.lean",
+        "sha256": "77712b2eb0b2fa4c0e82cdabc780adad8b80e11187d7876e2abab28a84d89156"
+      },
+      "ConcreteRVAxioms": {
+        "source": "Section6/ConcreteRVAxioms.lean",
+        "sha256": "5fcc38aac582f355d28dc667881da3944ca7a2e00eff2a09e574c4a99f40b103"
+      },
+      "ConcreteResidueOps": {
+        "source": "Section6/ConcreteResidueOps.lean",
+        "sha256": "f28997de914bb7e7e58bce5463c199e6e9144f124909062b45f8739b29324488"
+      },
+      "ConcreteValued": {
+        "source": "Section6/ConcreteValued.lean",
+        "sha256": "2c722c3f6ee44e97122d6ffcb4c785839b724cbaa3bb621bdf3c782d2e147e1e"
+      },
+      "HenselSchemeSemantics": {
+        "source": "Section6/HenselSchemeSemantics.lean",
+        "sha256": "149c169449fe8be7cac88932074af39b1b726f30806b8833ff2c0f21f647f94c"
+      },
+      "HenselianTheory": {
+        "source": "Section6/HenselianTheory.lean",
+        "sha256": "f7062b6730748384474da6de8861a8a0113fd8be0f5f883e4c0a52272d24f7a6"
+      },
+      "RVTermSupport": {
+        "source": "Section6/RVTermSupport.lean",
+        "sha256": "3f8a5c05dc356f477bcdb69da1ffe7d997c9cdf26a49e550e659a07df8c77f7c"
+      }
+    }
   }
 }

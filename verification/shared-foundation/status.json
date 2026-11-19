@@ -1,8 +1,9 @@
 {
   "status": "PASS",
-  "build": "lake build ACVFQE (9139 jobs)",
-  "source_module_audits": 85,
-  "combined_headline_audits": 13,
-  "shared_modules": 6,
-  "shared_provider": "a26c12d71f83356ad48442b782be67ff01bd3f18"
+  "build": "lake build ACVFQE (9154 jobs)",
+  "source_module_audits": 99,
+  "combined_headline_audits": 18,
+  "headline_statement_baseline": "verification/headline-types.txt",
+  "shared_modules": 7,
+  "shared_provider": "88bb3386f616779bfd87eb453d8a7c899ad63961"
 }
