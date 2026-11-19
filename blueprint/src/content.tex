@@ -566,3 +566,31 @@ sentence belongs to their common theory and therefore transfers to every
 model of that theory.
 
 \end{proof}
+
+\section{Models of ACVF}
+
+\begin{theorem}[Models of ACVF in every characteristic]
+
+\label{acvf-models}
+
+\lean{ACVFQE.Models.ConcreteValued.model_ACVF, ACVFQE.Models.exists_model_ACVF, ACVFQE.Models.exists_model_ACVF00, ACVFQE.Models.exists_model_ACVF0p, ACVFQE.Models.exists_model_ACVFpp}
+
+\leanok
+
+Every algebraically closed field with a nontrivial valuation is a model of
+the ACVF axioms in the corrected RV language. Hence ACVF has models of
+characteristic $(0,0)$, $(0,p)$ and $(p,p)$ for every prime $p$, and
+Theorem 2.3 is not vacuous in any characteristic.
+
+\end{theorem}
+
+\begin{proof}
+
+\leanok
+
+Take algebraic closures of $\mathbb{Q}((t))$, $\mathbb{Q}_p$ and
+$\mathbb{F}_p((t))$, with a valuation dominating $\mathbb{Q}[[t]]$,
+$\mathbb{Z}_p$ and $\mathbb{F}_p[[t]]$ (Chevalley's extension theorem), and
+check each axiom in the concrete two-sorted structure.
+
+\end{proof}

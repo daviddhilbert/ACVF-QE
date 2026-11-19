@@ -5,6 +5,14 @@ import argparse,hashlib,html,json,re,xml.etree.ElementTree as ET
 from urllib.parse import unquote,urlsplit
 ROOT=Path(__file__).resolve().parents[1]
 BP=ROOT/'blueprint'
+# Declarations owned by hilbert-mathlib are checked in its pinned checkout
+# (Lake's package directory, or a plain clone at the pinned revision in CI).
+PROVIDERS={'hilbert-mathlib':(ROOT/'.lake/packages/hilbert-mathlib','https://github.com/daviddhilbert/hilbert-mathlib/blob/'+json.loads((ROOT/'SHARED-FOUNDATION.json').read_text())['revision']+'/')}
+def source_file(d):
+    return (PROVIDERS[d['provider']][0] if 'provider' in d else ROOT)/d['file']
+def registry_location(d):
+    loc=d['file']+'#L'+str(d['line'])
+    return PROVIDERS[d['provider']][1]+loc if 'provider' in d else loc
 def check(rendered=False):
     receipt=json.loads((BP/'proof-source-manifest.json').read_text(encoding='utf-8'))
     for name,digest in receipt['sha256'].items():
@@ -18,10 +26,10 @@ def check(rendered=False):
     for n in nodes:
         assert set(n['dependencies'])<=ids,f'Unknown dependency in {n["id"]}'
         for d in n['declarations']:
-            line=(ROOT/d['file']).read_text(encoding='utf-8-sig').splitlines()[d['line']-1]
+            line=source_file(d).read_text(encoding='utf-8-sig').splitlines()[d['line']-1]
             short=re.escape(d['name'].split('.')[-1])
             assert re.match(r'^(?:noncomputable\s+)?(?:theorem|lemma|def|abbrev|structure)\s+'+short+r'\b',line),f'Stale declaration anchor: {d}'
-            declarations[d['name']]=d['file']+'#L'+str(d['line'])
+            declarations[d['name']]=registry_location(d)
     visiting=set();visited=set();by_id={n['id']:n for n in nodes}
     def visit(id):
         assert id not in visiting,f'Cyclic mathematical dependencies at {id}'
@@ -43,7 +51,7 @@ def check(rendered=False):
         pages=list(web.glob('*.html'));assert pages,'No rendered pages'
         all_html=html.unescape('\n'.join(p.read_text(encoding='utf-8') for p in pages))
         base='https://github.com/daviddhilbert/ACVF-QE/blob/'+receipt['proof_revision']+'/'
-        for name,loc in links.items():assert base+loc in all_html,f'Missing rendered Lean link: {name}'
+        for name,loc in links.items():assert (loc if loc.startswith('https://') else base+loc) in all_html,f'Missing rendered Lean link: {name}'
         svg=ET.parse(web/'dependency-graph.svg').getroot()
         graph_nodes=[e for e in svg.iter() if e.tag.endswith('}g') and e.attrib.get('class')=='node']
         assert len(graph_nodes)==len(nodes),f'Expected {len(nodes)} clickable graph nodes; got {len(graph_nodes)}'

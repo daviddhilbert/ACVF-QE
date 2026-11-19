@@ -1,7 +1,8 @@
 # ACVF-QE Lean blueprint
 
 The blueprint maps the completed ACF, ordinary ACVF, and RV-language QE proofs
-into 22 selected theorem/definition nodes. Each node links to the
+into 23 selected theorem/definition nodes, including the existence of
+models of ACVF in every characteristic. Each node links to the
 exact Lean declaration and records its mathematical dependencies. These are
 selected proof dependencies, not a complete expression-level dependency graph.
 
@@ -16,10 +17,12 @@ QE theorem. C-minimality is outside this package's claims.
 
 ## Source identity and verification
 
-The linked proof revision is `939346b0a99899e22a873479364e3cc5d142731c`, with
-[passing QE verification](https://github.com/daviddhilbert/ACVF-QE/actions/runs/42689540057).
-The Lean sources, toolchain, dependency pins and proof verifier are unchanged.
-`proof-source-manifest.json` fingerprints them. Blueprint validation checks
+The linked proof revision is `880fa74785df37439189a74f01ead8386d79e847`
+([verification checks](https://github.com/daviddhilbert/ACVF-QE/commit/880fa74785df37439189a74f01ead8386d79e847/checks)).
+`proof-source-manifest.json` fingerprints its Lean sources, toolchain,
+dependency pins and proof verifier. Declarations whose proofs now live in
+hilbert-mathlib link to that package at the revision pinned in
+`SHARED-FOUNDATION.json`; CI fetches it to check their anchors. Blueprint validation checks
 those fingerprints, every declaration anchor, the graph's acyclicity and the
 rendered source links. This documentation check is distinct from a fresh Lean
 compiler/type/axiom audit.
