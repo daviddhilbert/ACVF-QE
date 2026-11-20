@@ -69,7 +69,7 @@
     "Proofs/ResidueAlgebraicRoot.lean": "ee86748a2631fa78feed42f7555abcd79db46204a6d7121c2c484e6bfd66a726",
     "Proofs/ResidueAlgebraicSourceLift.lean": "cf85907f61dead21aab5dd85d92c182be4c5a3a680ec1083dd5a0c75bd8a4e82",
     "Proofs/ResidueAlgebraicTransport.lean": "bdd3e45674d83b3113b3a33320123dd79ff3e34489efda8efbfe30477d2fb4a2",
-    "Proofs/ResidueEmbeddingExtension.lean": "911d09cf4166ebf0a17a191beb1d4bc8c31459d60c50087e707d384a86de337c",
+    "Proofs/ResidueEmbeddingExtension.lean": "20f440dfc93aa82d98a98d965cd8666624ba32476d885ffdfcd24f447a6825d8",
     "Proofs/ResiduePolynomialLift.lean": "0a1b104f9ceb3427392969192c61a0b09872c79aa9cecffb57c3ce4a79bd8422",
     "Proofs/ResidueReduct.lean": "d24858574fe4f5575f8f4abd5810d5e26dc6dea00fcdc4dff25a21ccb85f7445",
     "Proofs/ResidueTranscendentalFieldEmbedding.lean": "873732eb086b100a67730d8c5e4f7f914d8e854e9cf6aba8c06e8fba48c7b84d",

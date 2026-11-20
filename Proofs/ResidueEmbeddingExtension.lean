@@ -33,7 +33,7 @@ saturated algebraically closed field extends to the whole field. The language
 is Mathlib's ordinary ring language with its usual compatible interpretations.
 An existing subfield embedding already ensures matching characteristics.
 
-Source: https://ebooks.karbust.me/Mathematics/David%20Marker%20-%20Model%20Theory%20(2002)%20%5B978-0-387-22734-4%5D.pdf
+Source: D. Marker, *Model Theory: An Introduction*, Graduate Texts in Mathematics 217, Springer, 2002.
 -/
 def MarkerACFSaturatedEmbeddingExtension : Prop :=
   ∀ (K L : Type) [Field K] [Field L] [IsAlgClosed K] [IsAlgClosed L]
