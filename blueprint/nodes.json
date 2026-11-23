@@ -65,18 +65,21 @@
   "declarations": [
    {
     "name": "JohnsonACFPrime.hasPrimeModels_field_acf",
-    "file": "Proofs/JohnsonACFPrime.lean",
-    "line": 273
+    "file": "HilbertMathlib/Foundation/ModelTheory/JohnsonACFPrime.lean",
+    "line": 277,
+    "provider": "hilbert-mathlib"
    },
    {
     "name": "ACFValidation.amalgamation_field",
-    "file": "Proofs/JohnsonACFGeometry.lean",
-    "line": 375
+    "file": "HilbertMathlib/Foundation/ModelTheory/JohnsonACFGeometry.lean",
+    "line": 379,
+    "provider": "hilbert-mathlib"
    },
    {
     "name": "ACFValidation.oneEC_field_acf",
-    "file": "Proofs/JohnsonACFGeometry.lean",
-    "line": 348
+    "file": "HilbertMathlib/Foundation/ModelTheory/JohnsonACFGeometry.lean",
+    "line": 352,
+    "provider": "hilbert-mathlib"
    }
   ],
   "dependencies": [],
@@ -91,8 +94,9 @@
   "declarations": [
    {
     "name": "JohnsonACF.hasQEb",
-    "file": "Proofs/JohnsonACFMain.lean",
-    "line": 14
+    "file": "HilbertMathlib/Foundation/ModelTheory/JohnsonACFMain.lean",
+    "line": 18,
+    "provider": "hilbert-mathlib"
    }
   ],
   "dependencies": [
@@ -111,12 +115,12 @@
    {
     "name": "ValPM.hasPrimeModels_ACVF_val",
     "file": "Proofs/JohnsonLanguagePrime.lean",
-    "line": 1423
+    "line": 47
    },
    {
     "name": "ValOneEC.hasAmalgamation_valField",
     "file": "Proofs/JohnsonAmalgamation.lean",
-    "line": 916
+    "line": 153
    },
    {
     "name": "ValOneEC.oneECIn_of_modelType",
@@ -183,8 +187,9 @@
   "declarations": [
    {
     "name": "MarkerBridge.SatAt",
-    "file": "Proofs/MarkerBridge.lean",
-    "line": 32
+    "file": "HilbertMathlib/Foundation/ModelTheory/MarkerSaturation.lean",
+    "line": 25,
+    "provider": "hilbert-mathlib"
    }
   ],
   "dependencies": [],
@@ -199,8 +204,9 @@
   "declarations": [
    {
     "name": "CountableSaturatedExtension.exists_saturated_elementary_extension",
-    "file": "Proofs/CountableSaturatedExtension.lean",
-    "line": 251
+    "file": "HilbertMathlib/Foundation/ModelTheory/CountableSaturatedExtension.lean",
+    "line": 256,
+    "provider": "hilbert-mathlib"
    }
   ],
   "dependencies": [
@@ -217,8 +223,9 @@
   "declarations": [
    {
     "name": "CountableQECriterion.fullQE_of_saturatedExtension",
-    "file": "Proofs/CountableQECriterion.lean",
-    "line": 190
+    "file": "HilbertMathlib/Foundation/ModelTheory/CountableQECriterion.lean",
+    "line": 194,
+    "provider": "hilbert-mathlib"
    }
   ],
   "dependencies": [
@@ -236,8 +243,9 @@
   "declarations": [
    {
     "name": "QESaturatedExtension.extension_of_fullQE",
-    "file": "Proofs/QESaturatedExtension.lean",
-    "line": 138
+    "file": "HilbertMathlib/Foundation/ModelTheory/QESaturatedExtension.lean",
+    "line": 142,
+    "provider": "hilbert-mathlib"
    }
   ],
   "dependencies": [
