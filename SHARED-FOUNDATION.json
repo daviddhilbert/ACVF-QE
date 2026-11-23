@@ -1,6 +1,6 @@
 {
   "provider": "daviddhilbert/hilbert-mathlib",
-  "revision": "88bb3386f616779bfd87eb453d8a7c899ad63961",
+  "revision": "3f3efa86f6dd85c00db1cb9a7ad242b1e0a49ecf",
   "public_names": "unchanged",
   "modules": [
     {
@@ -66,6 +66,99 @@
       "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/a4138c3a7899330d1c77d1ec01f8f29395b5805c/Proofs/TaggedCoordinates.lean",
       "compatibility_sha256": "6826868d948d4df2715df30900c87c7ee71931be43208b66fe5daf1312eeef7a",
       "split_generic_core": false
+    },
+    {
+      "path": "Proofs/JohnsonACFGeometry.lean",
+      "module": "Proofs.JohnsonACFGeometry",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.JohnsonACFGeometry",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/JohnsonACFGeometry.lean",
+      "extracted_sha256": "372622ae76e8b5e92b3c60d93cc7073c128b602ec23628fb6ba89cf3deae5a5f",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/JohnsonACFGeometry.lean",
+      "compatibility_sha256": "936de7b3f689c5381f2dc818bd569d1d478fe857b9a037ca2eb3764e68046885"
+    },
+    {
+      "path": "Proofs/JohnsonACFPrime.lean",
+      "module": "Proofs.JohnsonACFPrime",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.JohnsonACFPrime",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/JohnsonACFPrime.lean",
+      "extracted_sha256": "255f2d0c257c2f1d0d782421ca2c432c1faaed76327271d91b58f36e4f243c69",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/JohnsonACFPrime.lean",
+      "compatibility_sha256": "f8ca4bad8191d249d5f5857949b888942ead4378c2bc0d5e339949b188720689"
+    },
+    {
+      "path": "Proofs/JohnsonACFMain.lean",
+      "module": "Proofs.JohnsonACFMain",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.JohnsonACFMain",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/JohnsonACFMain.lean",
+      "extracted_sha256": "ccc63c292183b305435d9902aaa1557203b712105a3f56c4a07f4e48ee6ce839",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/JohnsonACFMain.lean",
+      "compatibility_sha256": "f5e17581ad97200c44837cce188e551daee370aee23fb65993f11edf20407fea"
+    },
+    {
+      "path": "Proofs/MarkerBridge.lean",
+      "module": "Proofs.MarkerBridge",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.MarkerSaturation",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/MarkerSaturation.lean",
+      "extracted_sha256": "30f64118b24985dd89e2cfd9bd453adba82aae2a16eb3df879723131187b636c",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/MarkerBridge.lean",
+      "compatibility_sha256": "fa797083612598fc553dadb24d7b54fdfa418c2daf547e0ad03e33eda5e329f7",
+      "split": true
+    },
+    {
+      "path": "Proofs/CountableSaturatedExtension.lean",
+      "module": "Proofs.CountableSaturatedExtension",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.CountableSaturatedExtension",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/CountableSaturatedExtension.lean",
+      "extracted_sha256": "dbc8e2fa6cd9db949dc17ffaaf32a93c8ae3b5097c3928c77ea1e2ce673a1da7",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/CountableSaturatedExtension.lean",
+      "compatibility_sha256": "359e73e3807d94ded588a7eecea35a11f1a91aaa985acc802802a2b98e1992ea"
+    },
+    {
+      "path": "Proofs/QESaturatedExtension.lean",
+      "module": "Proofs.QESaturatedExtension",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.QESaturatedExtension",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/QESaturatedExtension.lean",
+      "extracted_sha256": "39e6b8df4716fa7d00015be22d900a400c45757520a43d6d28f226dd48a63512",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/QESaturatedExtension.lean",
+      "compatibility_sha256": "5df671292bc7a9fc5db039644b8c5538c83b2ef32bfba9a2285d85f046b5acb7"
+    },
+    {
+      "path": "Proofs/CountableQECriterion.lean",
+      "module": "Proofs.CountableQECriterion",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.CountableQECriterion",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/CountableQECriterion.lean",
+      "extracted_sha256": "3ae082c6f11f66961b0569878f8eab2fe6c91f9e81bd359ff34bf7de614ec5dd",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/CountableQECriterion.lean",
+      "compatibility_sha256": "4f13fbdfe3a803fbd0d13bde21fa3b4093b23e03367e1359107a1519818f6051"
+    },
+    {
+      "path": "Proofs/JohnsonLanguagePrime.lean",
+      "module": "Proofs.JohnsonLanguagePrime",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.ValuedFieldLanguage",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/ValuedFieldLanguage.lean",
+      "extracted_sha256": "b8d1937fc2fb84a8f8bd4c3ec0c4af5fd04a859fccdd4f494114dba25e7bdeb6",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/JohnsonLanguagePrime.lean",
+      "compatibility_sha256": "91e54729a0d9b5f94ce8c55939da41dc281fe1965284e5b6d18c2f3121d71a0f",
+      "split": true
+    },
+    {
+      "path": "Proofs/JohnsonSubfield.lean",
+      "module": "Proofs.JohnsonSubfield",
+      "target_module": "HilbertMathlib.Foundation.ModelTheory.JohnsonSubfield",
+      "target_path": "HilbertMathlib/Foundation/ModelTheory/JohnsonSubfield.lean",
+      "extracted_sha256": "9073217b23a10100ca5ad3f44a718f30eacad563412eaf1c43f3a019b6e01012",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/JohnsonSubfield.lean",
+      "compatibility_sha256": "f914384195bb420f61ec5779970f3aaf621ec888dba85798d1061b0e6b5df504"
+    },
+    {
+      "path": "Proofs/JohnsonAmalgamation.lean",
+      "module": "Proofs.JohnsonAmalgamation",
+      "target_module": "HilbertMathlib.Foundation.Valuation.ValuedFieldAmalgamation",
+      "target_path": "HilbertMathlib/Foundation/Valuation/ValuedFieldAmalgamation.lean",
+      "extracted_sha256": "322cf2094d0f86526cf077720a5b4bac9f6761c5f3e8ea8e90c066dbe8407298",
+      "source_url": "https://github.com/daviddhilbert/ACVF-QE/blob/173708265d7959e031bf9552ee884501fc21f2cb/Proofs/JohnsonAmalgamation.lean",
+      "compatibility_sha256": "818ca1ccd240041398d2d4b1497c46508c1d4d5a69bd31d1ec0ad86d5e4b9e03",
+      "split": true
     }
   ]
 }
